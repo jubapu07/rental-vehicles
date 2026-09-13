@@ -15,6 +15,7 @@ export async function GET(request: NextRequest) {
     const fuelType = searchParams.get("fuelType");
     const instantOnly = searchParams.get("instantOnly") === "true";
     const sort = searchParams.get("sort") || "featured";
+    const searchQuery = searchParams.get("search") || searchParams.get("q");
 
     // Category-specific filters
     const minCc = searchParams.get("minCc") ? parseInt(searchParams.get("minCc")!, 10) : undefined;
@@ -47,6 +48,16 @@ export async function GET(request: NextRequest) {
 
     if (instantOnly) {
       where.instantBookable = true;
+    }
+
+    if (searchQuery && searchQuery.trim() !== "") {
+      const q = searchQuery.trim();
+      where.OR = [
+        { brand: { contains: q } },
+        { model: { contains: q } },
+        { title: { contains: q } },
+        { city: { contains: q } },
+      ];
     }
 
     // Specs relation filters
