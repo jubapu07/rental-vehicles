@@ -1,26 +1,75 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --canvas-bg: #F8FAFC;
+  --canvas-card: #FFFFFF;
+  --brand-navy: #0F2432;
+  --brand-navy-light: #1A3447;
+  --brand-obsidian: #090D14;
+  --brand-terracotta: #E05A36;
+  --brand-amber: #E67E22;
+  --brand-terracotta-hover: #C94C2B;
+  --system-green: #15803D;
+  --system-crimson: #DC2626;
+  --spec-slate: #64748B;
+  --border-subtle: #E2E8F0;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-canvas-bg: var(--canvas-bg);
+  --color-canvas-card: var(--canvas-card);
+  --color-brand-navy: var(--brand-navy);
+  --color-brand-navy-light: var(--brand-navy-light);
+  --color-brand-obsidian: var(--brand-obsidian);
+  --color-brand-terracotta: var(--brand-terracotta);
+  --color-brand-amber: var(--brand-amber);
+  --color-brand-terracotta-hover: var(--brand-terracotta-hover);
+  --color-system-green: var(--system-green);
+  --color-system-crimson: var(--system-crimson);
+  --color-spec-slate: var(--spec-slate);
+  --color-border-subtle: var(--border-subtle);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--canvas-bg);
+  color: var(--brand-obsidian);
+  font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Inter", "Segoe UI", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.glass-dark {
+  background: rgba(15, 36, 50, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Number display with tabular lining figures */
+.num-tabular {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
 }
