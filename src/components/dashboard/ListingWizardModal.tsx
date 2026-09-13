@@ -19,7 +19,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
   const [model, setModel] = useState("");
   const [year, setYear] = useState("2024");
   const [title, setTitle] = useState("");
-  const [city, setCity] = useState("Austin");
+  const [city, setCity] = useState("Bengaluru");
   const [locationAddress, setLocationAddress] = useState("");
   const [description, setDescription] = useState("");
 
@@ -31,29 +31,29 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
   const [transmission, setTransmission] = useState("AUTOMATIC");
   const [fuelType, setFuelType] = useState("EV");
   // Bike
-  const [engineDisplacementCc, setEngineDisplacementCc] = useState("1000");
-  const [seatHeightMm, setSeatHeightMm] = useState("820");
-  const [bikeType, setBikeType] = useState("SPORT");
+  const [engineDisplacementCc, setEngineDisplacementCc] = useState("450");
+  const [seatHeightMm, setSeatHeightMm] = useState("825");
+  const [bikeType, setBikeType] = useState("ADVENTURE");
   const [helmetProvided, setHelmetProvided] = useState(true);
   // Truck
   const [payloadCapacityKg, setPayloadCapacityKg] = useState("1000");
   const [bedLengthMeters, setBedLengthMeters] = useState("1.8");
-  const [towingCapacityKg, setTowingCapacityKg] = useState("4500");
+  const [towingCapacityKg, setTowingCapacityKg] = useState("3500");
   const [commercialLicenseRequired, setCommercialLicenseRequired] = useState(false);
 
   // Photos
   const [coverPhotoUrl, setCoverPhotoUrl] = useState(
-    "https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=80"
+    "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=1200&q=80"
   );
   const [photo2Url, setPhoto2Url] = useState(
-    "https://images.unsplash.com/photo-1536700503339-1e4b06520771?auto=format&fit=crop&w=1200&q=80"
+    "https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=1200&q=80"
   );
   const [photo3Url, setPhoto3Url] = useState(
-    "https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=1200&q=80"
+    "https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80"
   );
 
   // Pricing & Blackouts
-  const [dayRate, setDayRate] = useState("175");
+  const [dayRate, setDayRate] = useState("2999");
   const [weeklyDiscountPercentage, setWeeklyDiscountPercentage] = useState("12");
   const [instantBookable, setInstantBookable] = useState(true);
   const [blackoutStartDate, setBlackoutStartDate] = useState("");
@@ -277,12 +277,13 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                     onChange={(e) => setCity(e.target.value)}
                     className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#0F2432]"
                   >
-                    <option value="Austin">Austin, TX</option>
-                    <option value="Miami">Miami, FL</option>
-                    <option value="Los Angeles">Los Angeles, CA</option>
-                    <option value="Denver">Denver, CO</option>
-                    <option value="Seattle">Seattle, WA</option>
-                    <option value="Dallas">Dallas, TX</option>
+                    <option value="Bengaluru">Bengaluru, Karnataka</option>
+                    <option value="Mumbai">Mumbai, Maharashtra</option>
+                    <option value="Goa">Goa</option>
+                    <option value="New Delhi">New Delhi, Delhi NCR</option>
+                    <option value="Pune">Pune, Maharashtra</option>
+                    <option value="Hyderabad">Hyderabad, Telangana</option>
+                    <option value="Jaipur">Jaipur, Rajasthan</option>
                   </select>
                 </div>
                 <div>
@@ -594,7 +595,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block text-[11px] font-bold text-slate-700 mb-1">
-                    Day Rate ($ USD)
+                    Day Rate (₹ INR)
                   </label>
                   <input
                     type="number"
