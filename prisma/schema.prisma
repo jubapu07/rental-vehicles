@@ -1,0 +1,133 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String    @id @default(cuid())
+  name          String
+  email         String    @unique
+  role          String    @default("CUSTOMER") // CUSTOMER | HOST | ADMIN
+  licenseNumber String?
+  verifiedAt    DateTime?
+  avatarUrl     String?
+  phone         String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  vehicles      Vehicle[] @relation("HostVehicles")
+  bookings      Booking[] @relation("CustomerBookings")
+  reviews       Review[]  @relation("AuthorReviews")
+}
+
+model Vehicle {
+  id                       String         @id @default(cuid())
+  hostId                   String
+  title                    String
+  brand                    String
+  model                    String
+  year                     Int
+  category                 String         // CAR | MOTORCYCLE | TRUCK
+  slug                     String         @unique
+  description              String
+  locationAddress          String
+  city                     String
+  lat                      Float
+  lng                      Float
+  dayRate                  Float
+  weeklyDiscountPercentage Float          @default(12.0)
+  instantBookable          Boolean        @default(true)
+  isActive                 Boolean        @default(true)
+  createdAt                DateTime       @default(now())
+  updatedAt                DateTime       @updatedAt
+
+  host                     User           @relation("HostVehicles", fields: [hostId], references: [id], onDelete: Cascade)
+  specs                    VehicleSpecs?
+  images                   VehicleImage[]
+  bookings                 Booking[]
+  blackoutDates            BlackoutDate[]
+  reviews                  Review[]
+}
+
+model VehicleSpecs {
+  id                         String   @id @default(cuid())
+  vehicleId                  String   @unique
+  transmission               String   @default("AUTOMATIC") // AUTOMATIC | MANUAL
+  fuelType                   String   @default("PETROL")    // EV | PETROL | DIESEL | HYBRID
+  
+  // CAR attributes
+  seats                      Int?
+  doors                      Int?
+  luggageCapacity            Int?
+  
+  // MOTORCYCLE attributes
+  engineDisplacementCc       Int?
+  seatHeightMm               Int?
+  helmetProvided             Boolean  @default(false)
+  bikeType                   String?  // CRUISER | SPORT | ADVENTURE | NAKED
+  
+  // TRUCK attributes
+  payloadCapacityKg          Int?
+  bedLengthMeters            Float?
+  towingCapacityKg           Int?
+  commercialLicenseRequired  Boolean  @default(false)
+
+  vehicle                    Vehicle  @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+}
+
+model VehicleImage {
+  id        String   @id @default(cuid())
+  vehicleId String
+  url       String
+  caption   String?
+  isCover   Boolean  @default(false)
+  sortOrder Int      @default(0)
+
+  vehicle   Vehicle  @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+}
+
+model Booking {
+  id                    String   @id @default(cuid())
+  vehicleId             String
+  customerId            String
+  startDate             DateTime
+  endDate               DateTime
+  status                String   @default("CONFIRMED") // PENDING | CONFIRMED | ACTIVE | COMPLETED | CANCELLED
+  totalDays             Int
+  dayRateSnapshot       Float
+  discountApplied       Float    @default(0)
+  serviceFee            Float
+  securityDeposit       Float
+  totalPrice            Float
+  stripePaymentIntentId String?
+  createdAt             DateTime @default(now())
+
+  vehicle               Vehicle  @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+  customer              User     @relation("CustomerBookings", fields: [customerId], references: [id], onDelete: Cascade)
+}
+
+model BlackoutDate {
+  id        String   @id @default(cuid())
+  vehicleId String
+  startDate DateTime
+  endDate   DateTime
+  reason    String   @default("MAINTENANCE") // MAINTENANCE | HOST_UNAVAILABLE
+
+  vehicle   Vehicle  @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+}
+
+model Review {
+  id        String   @id @default(cuid())
+  vehicleId String
+  authorId  String
+  rating    Int      // 1 to 5
+  comment   String
+  createdAt DateTime @default(now())
+
+  vehicle   Vehicle  @relation(fields: [vehicleId], references: [id], onDelete: Cascade)
+  author    User     @relation("AuthorReviews", fields: [authorId], references: [id], onDelete: Cascade)
+}
