@@ -97,14 +97,15 @@ export function calculateQuoteBreakdown({
   // 10% platform service fee on net vehicle cost
   const serviceFee = Math.round(netVehicleCost * 0.10 * 100) / 100;
 
-  // Category-specific refundable security deposit
-  let securityDeposit = 350;
+  // Category-specific refundable security deposit (in INR)
+  let securityDeposit = 5000;
   if (category === "MOTORCYCLE") {
-    securityDeposit = 400;
+    securityDeposit = 3000;
   } else if (category === "TRUCK") {
-    securityDeposit = 500;
-  } else if (dayRate >= 200) {
-    securityDeposit = 650; // Premium luxury sports car
+    securityDeposit = 7500;
+  }
+  if (dayRate >= 5000) {
+    securityDeposit = 10000; // Premium SUV / Extreme Hauler
   }
 
   const totalPrice = Math.round((netVehicleCost + serviceFee + securityDeposit) * 100) / 100;
