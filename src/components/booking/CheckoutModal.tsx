@@ -17,7 +17,7 @@ export default function CheckoutModal({ vehicle, quote, onClose }: CheckoutModal
   const [cardNumber, setCardNumber] = useState("4242 •••• •••• 4242");
   const [cardExpiry, setCardExpiry] = useState("12/28");
   const [cardCvc, setCardCvc] = useState("888");
-  const [nameOnCard, setNameOnCard] = useState("Alex Sterling");
+  const [nameOnCard, setNameOnCard] = useState("Arjun Mehta");
   const [confirmedBooking, setConfirmedBooking] = useState<{ id: string; stripePaymentIntentId?: string } | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -109,7 +109,7 @@ export default function CheckoutModal({ vehicle, quote, onClose }: CheckoutModal
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span>Total Charged:</span>
-                <span className="text-[#0F2432] num-tabular">${quote.totalPrice}</span>
+                <span className="text-[#0F2432] num-tabular">₹{quote.totalPrice.toLocaleString("en-IN")}</span>
               </div>
             </div>
 
@@ -149,30 +149,30 @@ export default function CheckoutModal({ vehicle, quote, onClose }: CheckoutModal
             {/* Pricing Summary */}
             <div className="space-y-2 text-xs border-b border-slate-100 pb-4">
               <div className="flex justify-between text-slate-600">
-                <span>${quote.dayRate} × {quote.totalDays} days</span>
-                <span className="font-semibold text-slate-900 num-tabular">${quote.baseAmount}</span>
+                <span>₹{quote.dayRate.toLocaleString("en-IN")} × {quote.totalDays} days</span>
+                <span className="font-semibold text-slate-900 num-tabular">₹{quote.baseAmount.toLocaleString("en-IN")}</span>
               </div>
 
               {quote.discountAmount > 0 && (
                 <div className="flex justify-between text-emerald-700 font-medium">
                   <span>Weekly Duration Discount ({quote.weeklyDiscountPercentage}%)</span>
-                  <span className="font-bold num-tabular">-${quote.discountAmount}</span>
+                  <span className="font-bold num-tabular">-₹{quote.discountAmount.toLocaleString("en-IN")}</span>
                 </div>
               )}
 
               <div className="flex justify-between text-slate-600">
                 <span>Platform Service & Protection Fee</span>
-                <span className="font-semibold text-slate-900 num-tabular">${quote.serviceFee}</span>
+                <span className="font-semibold text-slate-900 num-tabular">₹{quote.serviceFee.toLocaleString("en-IN")}</span>
               </div>
 
               <div className="flex justify-between text-slate-600">
                 <span>Refundable Security Deposit</span>
-                <span className="font-semibold text-slate-900 num-tabular">${quote.securityDeposit}</span>
+                <span className="font-semibold text-slate-900 num-tabular">₹{quote.securityDeposit.toLocaleString("en-IN")}</span>
               </div>
 
               <div className="flex justify-between items-center text-sm font-black text-slate-900 border-t border-slate-200 pt-3">
                 <span>Total Certified Due</span>
-                <span className="text-base text-[#0F2432] num-tabular">${quote.totalPrice}</span>
+                <span className="text-base text-[#0F2432] num-tabular">₹{quote.totalPrice.toLocaleString("en-IN")}</span>
               </div>
             </div>
 
@@ -182,7 +182,7 @@ export default function CheckoutModal({ vehicle, quote, onClose }: CheckoutModal
                 <ShieldCheck className="w-5 h-5 text-emerald-600" />
                 <div>
                   <p className="text-xs font-bold text-emerald-900">Verified Driver Profile</p>
-                  <p className="text-[10px] text-emerald-700">Alex Sterling • License Verified (CA-8839201D)</p>
+                  <p className="text-[10px] text-emerald-700">Arjun Mehta • Indian Driving License (KA-01-2022-9874561)</p>
                 </div>
               </div>
               <span className="text-[10px] font-bold text-emerald-700 bg-white px-2 py-0.5 rounded-md border border-emerald-200">
@@ -263,7 +263,7 @@ export default function CheckoutModal({ vehicle, quote, onClose }: CheckoutModal
               ) : (
                 <>
                   <Sparkles className="w-4 h-4" />
-                  <span>Authorize & Pay ${quote.totalPrice}</span>
+                  <span>Authorize & Pay ₹{quote.totalPrice.toLocaleString("en-IN")}</span>
                 </>
               )}
             </button>

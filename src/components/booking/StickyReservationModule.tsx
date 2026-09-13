@@ -92,7 +92,7 @@ export default function StickyReservationModule({
         <div>
           <div className="flex items-baseline gap-1.5">
             <span className="text-3xl font-black text-slate-900 num-tabular">
-              ${vehicle.dayRate}
+              ₹{vehicle.dayRate.toLocaleString("en-IN")}
             </span>
             <span className="text-sm font-semibold text-slate-500">/ day</span>
           </div>
@@ -170,34 +170,34 @@ export default function StickyReservationModule({
       ) : quote ? (
         <div className="space-y-3 text-xs border-t border-slate-100 pt-4">
           <div className="flex justify-between text-slate-600">
-            <span>${quote.dayRate} × {quote.totalDays} days</span>
-            <span className="font-semibold text-slate-900 num-tabular">${quote.baseAmount}</span>
+            <span>₹{quote.dayRate.toLocaleString("en-IN")} × {quote.totalDays} days</span>
+            <span className="font-semibold text-slate-900 num-tabular">₹{quote.baseAmount.toLocaleString("en-IN")}</span>
           </div>
 
           {quote.discountAmount > 0 && (
             <div className="flex justify-between text-emerald-700 font-semibold">
               <span>Duration discount ({quote.weeklyDiscountPercentage}%)</span>
-              <span className="num-tabular">-${quote.discountAmount}</span>
+              <span className="num-tabular">-₹{quote.discountAmount.toLocaleString("en-IN")}</span>
             </div>
           )}
 
           <div className="flex justify-between text-slate-600">
             <span className="underline decoration-dotted cursor-help" title="Covers 24/7 roadside assistance, host verification and booking insurance">
-              Platform Service Fee
+              Platform Service Fee (10%)
             </span>
-            <span className="font-semibold text-slate-900 num-tabular">${quote.serviceFee}</span>
+            <span className="font-semibold text-slate-900 num-tabular">₹{quote.serviceFee.toLocaleString("en-IN")}</span>
           </div>
 
           <div className="flex justify-between text-slate-600">
             <span className="underline decoration-dotted cursor-help" title="100% refunded after trip upon safe vehicle return">
               Refundable Security Deposit
             </span>
-            <span className="font-semibold text-slate-900 num-tabular">${quote.securityDeposit}</span>
+            <span className="font-semibold text-slate-900 num-tabular">₹{quote.securityDeposit.toLocaleString("en-IN")}</span>
           </div>
 
           <div className="flex justify-between items-baseline border-t border-slate-200 pt-3 text-sm font-black text-slate-900">
             <span>Total Certified Quote</span>
-            <span className="text-xl text-[#0F2432] num-tabular">${quote.totalPrice}</span>
+            <span className="text-xl text-[#0F2432] num-tabular">₹{quote.totalPrice.toLocaleString("en-IN")}</span>
           </div>
         </div>
       ) : null}
