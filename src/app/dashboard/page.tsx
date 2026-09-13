@@ -249,7 +249,7 @@ export default function DashboardPage() {
                       ACTIVE TRIP IN PROGRESS
                     </span>
                     <span className="text-xs font-extrabold text-slate-900 num-tabular">
-                      ${b.totalPrice} Total
+                      ₹{b.totalPrice.toLocaleString("en-IN")} Total
                     </span>
                   </div>
 
@@ -317,7 +317,7 @@ export default function DashboardPage() {
                       CONFIRMED RESERVATION
                     </span>
                     <span className="text-xs font-extrabold text-slate-900 num-tabular">
-                      ${b.totalPrice} Due
+                      ₹{b.totalPrice.toLocaleString("en-IN")} Due
                     </span>
                   </div>
 
@@ -407,7 +407,7 @@ export default function DashboardPage() {
                   <div className="p-5 space-y-2">
                     <h3 className="font-bold text-sm text-slate-900 line-clamp-1">{v.title}</h3>
                     <div className="flex items-center justify-between text-xs text-slate-600">
-                      <span>Rate: <strong className="text-slate-900">${v.dayRate}/day</strong></span>
+                      <span>Rate: <strong className="text-slate-900">₹{v.dayRate.toLocaleString("en-IN")}/day</strong></span>
                       <span className="text-emerald-700 font-bold">{v.instantBookable ? "⚡ Instant Book" : "Host Review"}</span>
                     </div>
 
@@ -447,7 +447,7 @@ export default function DashboardPage() {
               </div>
               <p className="text-xs font-bold uppercase tracking-wider text-slate-400">Total Host Payout</p>
               <p className="text-3xl font-black text-slate-900 num-tabular">
-                ${totalRevenue.toLocaleString()}
+                ₹{totalRevenue.toLocaleString("en-IN")}
               </p>
               <p className="text-[11px] text-emerald-700 font-semibold flex items-center gap-1">
                 <TrendingUp className="w-3.5 h-3.5" /> +24% vs last calendar month
@@ -489,7 +489,7 @@ export default function DashboardPage() {
                     </p>
                   </div>
                   <div className="text-right">
-                    <p className="font-extrabold text-slate-900 num-tabular">${b.totalPrice}</p>
+                    <p className="font-extrabold text-slate-900 num-tabular">₹{b.totalPrice.toLocaleString("en-IN")}</p>
                     <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">
                       {b.status}
                     </span>

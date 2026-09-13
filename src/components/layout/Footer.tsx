@@ -14,7 +14,7 @@ export default function Footer() {
             <div>
               <h4 className="text-sm font-bold text-white">Full Physical Damage Protection</h4>
               <p className="text-xs text-slate-400 mt-1">
-                Every booking is insured with 24/7 roadside assistance and up to $1M liability coverage.
+                Every booking is insured with 24/7 roadside assistance and up to ₹1 Crore comprehensive liability protection.
               </p>
             </div>
           </div>
@@ -111,19 +111,19 @@ export default function Footer() {
             <h5 className="text-xs font-bold uppercase tracking-wider text-white mb-3">Popular Hubs</h5>
             <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/explore?city=Austin" className="hover:text-white transition-colors">Austin, TX</Link>
+                <Link href="/explore?city=Bengaluru" className="hover:text-white transition-colors">Bengaluru, KA</Link>
               </li>
               <li>
-                <Link href="/explore?city=Miami" className="hover:text-white transition-colors">Miami, FL</Link>
+                <Link href="/explore?city=Mumbai" className="hover:text-white transition-colors">Mumbai, MH</Link>
               </li>
               <li>
-                <Link href="/explore?city=Los+Angeles" className="hover:text-white transition-colors">Los Angeles, CA</Link>
+                <Link href="/explore?city=Goa" className="hover:text-white transition-colors">Goa</Link>
               </li>
               <li>
-                <Link href="/explore?city=Denver" className="hover:text-white transition-colors">Denver, CO</Link>
+                <Link href="/explore?city=New+Delhi" className="hover:text-white transition-colors">New Delhi, NCR</Link>
               </li>
               <li>
-                <Link href="/explore?city=Seattle" className="hover:text-white transition-colors">Seattle, WA</Link>
+                <Link href="/explore?city=Pune" className="hover:text-white transition-colors">Pune, MH</Link>
               </li>
             </ul>
           </div>

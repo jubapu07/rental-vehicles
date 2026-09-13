@@ -90,7 +90,7 @@ export default async function HomePage() {
           {/* Quick Hub Badges */}
           <div className="flex flex-wrap items-center justify-center gap-2 pt-2 text-xs font-semibold text-slate-500">
             <span className="text-slate-400">Popular Departure Hubs:</span>
-            {["Austin, TX", "Miami, FL", "Los Angeles, CA", "Denver, CO", "Seattle, WA"].map((hub) => (
+            {["Bengaluru, KA", "Mumbai, MH", "Goa, GA", "New Delhi, DL", "Pune, MH", "Hyderabad, TS"].map((hub) => (
               <Link
                 key={hub}
                 href={`/explore?city=${encodeURIComponent(hub.split(",")[0])}`}
@@ -335,7 +335,7 @@ export default async function HomePage() {
             Ready to Take the Wheel?
           </h2>
           <p className="text-xs sm:text-sm text-slate-600">
-            Browse our curated fleet of sports cars, adventure motorcycles, and trucks across Austin, Miami, Los Angeles, and Denver.
+            Browse our curated fleet of sports cars, adventure motorcycles, and hauler trucks across Bengaluru, Mumbai, Goa, New Delhi, and Pune.
           </p>
         </div>
         <div className="flex flex-wrap items-center justify-center gap-3">
