@@ -195,14 +195,14 @@ export default function VehicleCard({ vehicle, searchStart, searchEnd }: Vehicle
           <div>
             <div className="flex items-baseline gap-1">
               <span className="text-xl font-extrabold text-slate-900 num-tabular">
-                ${vehicle.dayRate}
+                ₹{vehicle.dayRate.toLocaleString("en-IN")}
               </span>
               <span className="text-xs text-slate-500 font-medium">/ day</span>
             </div>
 
             {calculatedDays > 0 && (
               <p className="text-[11px] font-bold text-emerald-700 mt-0.5">
-                ${estimatedTotal} total for {calculatedDays} days
+                ₹{estimatedTotal.toLocaleString("en-IN")} total for {calculatedDays} days
               </p>
             )}
           </div>

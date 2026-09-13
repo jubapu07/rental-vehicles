@@ -28,13 +28,14 @@ export default function UniversalSearchRibbon({
   const [endDate, setEndDate] = useState<string>(initialEnd);
   const [showCityDropdown, setShowCityDropdown] = useState(false);
 
-  // Popular mobility hubs
+  // Popular Indian mobility hubs
   const popularHubs = [
-    { city: "Austin", state: "TX", icon: "🎸" },
-    { city: "Miami", state: "FL", icon: "🌴" },
-    { city: "Los Angeles", state: "CA", icon: "🎬" },
-    { city: "Denver", state: "CO", icon: "🏔️" },
-    { city: "Seattle", state: "WA", icon: "🌲" },
+    { city: "Bengaluru", state: "Karnataka", icon: "🚀" },
+    { city: "Mumbai", state: "Maharashtra", icon: "🌊" },
+    { city: "Goa", state: "Goa", icon: "🌴" },
+    { city: "New Delhi", state: "Delhi NCR", icon: "🏛️" },
+    { city: "Pune", state: "Maharashtra", icon: "⛰️" },
+    { city: "Hyderabad", state: "Telangana", icon: "💎" },
   ];
 
   const handleSearch = (e?: React.FormEvent) => {
@@ -130,7 +131,7 @@ export default function UniversalSearchRibbon({
               value={city}
               onChange={(e) => setCity(e.target.value)}
               onFocus={() => setShowCityDropdown(true)}
-              placeholder="City or Hub (e.g. Austin, Miami)"
+              placeholder="City or Hub (e.g. Bengaluru, Mumbai, Goa)"
               className="w-full text-sm font-semibold text-slate-900 placeholder:text-slate-400 focus:outline-hidden bg-transparent"
             />
             {city && (

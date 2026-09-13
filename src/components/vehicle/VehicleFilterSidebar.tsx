@@ -20,7 +20,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
 
   // Read current URL parameters
   const currentCategory = searchParams.get("category") || "ALL";
-  const currentMaxPrice = searchParams.get("maxPrice") || "500";
+  const currentMaxPrice = searchParams.get("maxPrice") || "10000";
   const currentInstantOnly = searchParams.get("instantOnly") === "true";
   const currentTransmission = searchParams.get("transmission") || "ALL";
   const currentFuelType = searchParams.get("fuelType") || "ALL";
@@ -171,21 +171,21 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
             Max Daily Rate
           </label>
           <span className="text-sm font-extrabold text-[#0F2432] num-tabular">
-            ${currentMaxPrice}/day
+            ₹{parseInt(currentMaxPrice || "10000", 10).toLocaleString("en-IN")}/day
           </span>
         </div>
         <input
           type="range"
-          min="80"
-          max="500"
-          step="10"
+          min="800"
+          max="10000"
+          step="200"
           value={currentMaxPrice}
           onChange={(e) => updateParam("maxPrice", e.target.value)}
           className="w-full accent-[#E05A36] cursor-pointer"
         />
         <div className="flex justify-between text-[10px] text-slate-400 mt-1">
-          <span>$80/day</span>
-          <span>$500+/day</span>
+          <span>₹800/day</span>
+          <span>₹10,000+/day</span>
         </div>
       </div>
 
