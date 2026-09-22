@@ -28,6 +28,8 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
   const currentBikeType = searchParams.get("bikeType") || "ALL";
   const currentMinPayload = searchParams.get("minPayload") || "0";
   const currentSeats = searchParams.get("seats") || "ALL";
+  const currentAgency = searchParams.get("agency") || "ALL";
+  const currentSuvsOnly = searchParams.get("suvsOnly") === "true";
 
   const updateParam = (key: string, value: string | null) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -162,6 +164,62 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
           onChange={(e) => updateParam("instantOnly", e.target.checked ? "true" : null)}
           className="w-4 h-4 accent-[#E05A36] rounded cursor-pointer"
         />
+      </div>
+
+      {/* 2b. SUVs Only Toggle (Matching Screenshot Feature) */}
+      <div>
+        <button
+          type="button"
+          onClick={() => {
+            if (currentSuvsOnly) {
+              updateParam("suvsOnly", null);
+              updateParam("bodyType", null);
+            } else {
+              updateParam("suvsOnly", "true");
+              updateParam("bodyType", "SUV");
+            }
+          }}
+          className={`w-full py-2.5 px-3 rounded-2xl text-xs font-bold flex items-center justify-between border transition-all cursor-pointer ${
+            currentSuvsOnly
+              ? "bg-[#FF5B26] text-white border-[#FF5B26] shadow-sm"
+              : "bg-slate-50 text-slate-700 hover:bg-slate-100 border-slate-200"
+          }`}
+        >
+          <div className="flex items-center gap-2">
+            <Car className="w-4 h-4" />
+            <span>SUVs & 4x4s Only</span>
+          </div>
+          <span
+            className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+              currentSuvsOnly ? "bg-white/20 text-white" : "bg-slate-200 text-slate-700"
+            }`}
+          >
+            {currentSuvsOnly ? "Active" : "Filter"}
+          </span>
+        </button>
+      </div>
+
+      {/* 2c. Rental Agency Filter (Hertz, Avis, Enterprise, etc.) */}
+      <div>
+        <label className="block text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">
+          Rental Agency
+        </label>
+        <div className="grid grid-cols-2 gap-1.5">
+          {["ALL", "Hertz", "Avis", "Enterprise", "National", "Budget", "ACE", "Dollar"].map((ag) => (
+            <button
+              key={ag}
+              type="button"
+              onClick={() => updateParam("agency", ag)}
+              className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-left truncate cursor-pointer ${
+                currentAgency === ag
+                  ? "bg-[#0F2432] text-white shadow-xs"
+                  : "bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200"
+              }`}
+            >
+              {ag === "ALL" ? "All Agencies" : ag}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* 3. Daily Rate Slider */}

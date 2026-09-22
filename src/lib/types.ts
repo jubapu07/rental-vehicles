@@ -9,6 +9,7 @@ export interface VehicleSpecsData {
   seats?: number | null;
   doors?: number | null;
   luggageCapacity?: number | null;
+  bodyType?: "SUV" | "SEDAN" | "CONVERTIBLE" | "COUPE" | "HATCHBACK" | string | null;
   // Motorcycle
   engineDisplacementCc?: number | null;
   seatHeightMm?: number | null;
@@ -71,6 +72,7 @@ export interface VehicleData {
   weeklyDiscountPercentage: number;
   instantBookable: boolean;
   isActive: boolean;
+  agency?: string | null;
   createdAt: string | Date;
   updatedAt: string | Date;
   host: HostData;

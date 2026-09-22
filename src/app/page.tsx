@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import UniversalSearchRibbon from "@/components/search/UniversalSearchRibbon";
+import HeroCarHireWidget from "@/components/search/HeroCarHireWidget";
+import RentalAgencyBanner from "@/components/home/RentalAgencyBanner";
+import FeatureValueCards from "@/components/home/FeatureValueCards";
 import VehicleCard from "@/components/vehicle/VehicleCard";
 import { Car, Bike, Truck, ShieldCheck, Sparkles, ArrowRight, CheckCircle2, Zap } from "lucide-react";
 import { VehicleData } from "@/lib/types";
@@ -50,57 +52,35 @@ export default async function HomePage() {
   ]);
 
   return (
-    <div className="space-y-24 pb-20">
-      {/* HERO SECTION */}
-      <section className="relative pt-12 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden bg-gradient-to-b from-slate-100 via-white to-[#F8FAFC]">
-        {/* Background Ambient Glows */}
-        <div className="absolute -top-36 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-gradient-to-r from-amber-400/15 via-[#E05A36]/15 to-emerald-400/10 blur-3xl pointer-events-none -z-10" />
-
-        <div className="max-w-7xl mx-auto text-center space-y-8">
-          {/* Top Live Status Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white shadow-xs border border-slate-200">
-            <span className="flex h-2 w-2 relative">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-            </span>
-            <span className="text-xs font-bold text-slate-800">
-              Live Fleet Engine Active • Collision-Free Range Verification
-            </span>
-          </div>
-
-          {/* Bold Editorial Headline */}
-          <div className="space-y-4 max-w-4xl mx-auto">
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[#0F2432] tracking-tight leading-[1.08]">
-              Freedom Across <br className="hidden sm:inline" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0F2432] via-[#E05A36] to-[#E67E22]">
-                Every Category
-              </span>{" "}
-              of Mobility.
-            </h1>
-            <p className="text-base sm:text-lg text-slate-600 max-w-2xl mx-auto font-normal leading-relaxed">
-              Rent verified sports cars, world-touring adventure motorcycles, and heavy-duty hauler trucks from certified hosts. Zero dummy inventory, guaranteed real-time availability.
-            </p>
-          </div>
-
-          {/* View A: Universal Multi-Category Search Ribbon */}
-          <div className="pt-2">
-            <UniversalSearchRibbon />
-          </div>
-
-          {/* Quick Hub Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-2 text-xs font-semibold text-slate-500">
-            <span className="text-slate-400">Popular Departure Hubs:</span>
-            {["Bengaluru, KA", "Mumbai, MH", "Goa, GA", "New Delhi, DL", "Pune, MH", "Hyderabad, TS"].map((hub) => (
-              <Link
-                key={hub}
-                href={`/explore?city=${encodeURIComponent(hub.split(",")[0])}`}
-                className="px-3 py-1 rounded-full bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 transition-colors"
-              >
-                {hub}
-              </Link>
-            ))}
-          </div>
+    <div className="space-y-12 sm:space-y-16 pb-20">
+      {/* 1. PANORAMIC COASTAL HERO SECTION (Exact visual inspiration from screenshot) */}
+      <section className="relative min-h-[560px] sm:min-h-[620px] flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden pt-12 pb-16">
+        {/* Background Image: California Pacific Coastal Vista with dark sand, surf, and cliffs */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-100"
+          style={{
+            backgroundImage: "url('/images/coastal-hero.jpg')",
+          }}
+        >
+          {/* Subtle gradient overlays for text contrast and depth */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20" />
         </div>
+
+        {/* Content Container */}
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
+          <HeroCarHireWidget />
+        </div>
+      </section>
+
+      {/* 2. RENTAL AGENCY PARTNERS BANNER (Hertz, AVIS, Enterprise, National, Budget, ACE, Dollar) */}
+      <section className="-mt-8 sm:-mt-10 relative z-20">
+        <RentalAgencyBanner />
+      </section>
+
+      {/* 3. VALUE PROPOSITION FEATURE CARDS (Discount, Price Tracking, Deep Filters) */}
+      <section>
+        <FeatureValueCards currentCity="Santa Rosa, CA" />
       </section>
 
       {/* CATEGORY SHOWCASE CARDS */}

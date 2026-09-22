@@ -27,6 +27,9 @@ export default async function ExplorePage({ searchParams }: ExplorePageProps) {
   const bikeType = (resolvedParams.bikeType as string) || "ALL";
   const minPayload = resolvedParams.minPayload ? parseInt(resolvedParams.minPayload as string, 10) : undefined;
   const seats = resolvedParams.seats && resolvedParams.seats !== "ALL" ? parseInt(resolvedParams.seats as string, 10) : undefined;
+  const suvsOnly = resolvedParams.suvsOnly === "true";
+  const bodyType = (resolvedParams.bodyType as string) || (suvsOnly ? "SUV" : "ALL");
+  const agency = (resolvedParams.agency as string) || "ALL";
   const sort = (resolvedParams.sort as string) || "featured";
 
   // Build Prisma Where Clause
@@ -39,6 +42,10 @@ export default async function ExplorePage({ searchParams }: ExplorePageProps) {
 
   if (city && city.trim() !== "") {
     where.city = { contains: city.trim() };
+  }
+
+  if (agency && agency !== "ALL") {
+    where.agency = { contains: agency };
   }
 
   if (maxPrice !== undefined) {
@@ -58,6 +65,12 @@ export default async function ExplorePage({ searchParams }: ExplorePageProps) {
   if (bikeType && bikeType !== "ALL") specsWhere.bikeType = bikeType.toUpperCase();
   if (minPayload !== undefined) specsWhere.payloadCapacityKg = { gte: minPayload };
   if (seats !== undefined) specsWhere.seats = { gte: seats };
+
+  if (suvsOnly || bodyType === "SUV") {
+    specsWhere.bodyType = "SUV";
+  } else if (bodyType && bodyType !== "ALL") {
+    specsWhere.bodyType = bodyType.toUpperCase();
+  }
 
   if (Object.keys(specsWhere).length > 0) {
     where.specs = specsWhere;
@@ -170,12 +183,18 @@ export default async function ExplorePage({ searchParams }: ExplorePageProps) {
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-4 rounded-2xl border border-slate-200">
             <div>
               <h1 className="text-lg font-black text-slate-900">
-                {category === "ALL" ? "All Mobility Fleet" : `${category.charAt(0) + category.slice(1).toLowerCase()}s`}
-                {city ? ` in ${city}` : ""}
+                {suvsOnly || bodyType === "SUV"
+                  ? `SUVs & 4x4s${city ? ` in ${city}` : ""}`
+                  : agency && agency !== "ALL"
+                  ? `${agency} Fleet${city ? ` in ${city}` : ""}`
+                  : category === "ALL"
+                  ? `All Mobility Fleet${city ? ` in ${city}` : ""}`
+                  : `${category.charAt(0) + category.slice(1).toLowerCase()}s${city ? ` in ${city}` : ""}`}
               </h1>
               <p className="text-xs text-slate-500 mt-0.5">
                 Showing <strong className="text-slate-800">{enrichedVehicles.length}</strong> available vehicles
-                {start && end ? ` for certified collision-free dates` : ""}
+                {start && end ? ` for certified dates (${start} to ${end})` : ""}
+                {agency && agency !== "ALL" ? ` • Partner: ${agency}` : ""}
               </p>
             </div>
 
