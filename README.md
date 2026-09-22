@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# FleetFlow PRO - Multi-Category Car Hire & Rental Platform
+
+A modern, responsive vehicle rental web application built with Next.js 16, React 19, TypeScript, Tailwind CSS, and Prisma SQLite.
+
+## Features
+
+- **Panoramic Coastal Hero**: Dynamic destination search (`[City] car hire`), same/different drop-off selector, and driver age filter.
+- **Search Ribbon**: Fast autocomplete for airports and hubs, date & time pickers with Noon selectors, and `SUVs only` filter toggle.
+- **Rental Agency Partners**: Dedicated banner for Hertz, AVIS, Enterprise, National, Budget, ACE Rent A Car, and Dollar with direct fleet filtering.
+- **Interactive Value Propositions**:
+  - Deals & promo codes modal (up to 49% savings)
+  - Live price tracking alert modal with simulated trend monitoring
+  - Advanced faceted fleet filters (price slider, categories, body style, transmission, fuel type)
+- **Top Navigation**: Real-time saved vehicles favorites drawer (`🤍`) and member authentication modal (`👤 Sign in`) with instant 1-click verified demo profiles.
+- **Multi-Category Fleet**: Cars, SUVs, adventure motorcycles, and heavy-duty hauler trucks across Santa Rosa, CA and metro hubs.
 
 ## Getting Started
 
-First, run the development server:
-
+1. Install dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Seed database:
+```bash
+npx tsx prisma/seed.ts
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open [http://localhost:3000](http://localhost:3000) with your browser to explore the platform.
