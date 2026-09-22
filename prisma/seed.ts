@@ -875,8 +875,38 @@ async function main() {
     },
   ];
 
+  // Authentic localized image mapping for all 23 Indian market vehicles
+  const vehicleImageMap: Record<string, string> = {
+    "mahindra-thar-4x4-hard-top-2024-bengaluru": "/images/vehicles/mahindra-thar.jpg",
+    "toyota-fortuner-legender-4x4-2024-delhi": "/images/vehicles/toyota-fortuner.jpg",
+    "tata-nexon-ev-max-2024-pune": "/images/vehicles/tata-nexon-ev.jpg",
+    "mahindra-xuv700-ax7-luxury-2024-mumbai": "/images/vehicles/mahindra-xuv700.jpg",
+    "maruti-suzuki-jimny-4x4-2024-goa": "/images/vehicles/maruti-jimny.jpg",
+    "royal-enfield-himalayan-450-2024-bengaluru": "/images/vehicles/re-himalayan.jpg",
+    "royal-enfield-classic-350-2024-goa": "/images/vehicles/re-classic-350.jpg",
+    "ktm-390-duke-2024-pune": "/images/vehicles/ktm-390-duke.jpg",
+    "bmw-g-310-gs-2024-mumbai": "/images/vehicles/bmw-g310-gs.jpg",
+    "triumph-scrambler-400x-2024-delhi": "/images/vehicles/triumph-scrambler-400x.jpg",
+    "isuzu-d-max-v-cross-4x4-2024-bengaluru": "/images/vehicles/isuzu-dmax.jpg",
+    "toyota-hilux-4x4-2024-delhi": "/images/vehicles/toyota-hilux.jpg",
+    "tata-yodha-4x4-2024-pune": "/images/vehicles/mahindra-bolero-camper.jpg",
+    "mahindra-scorpio-n-z8l-4x4-2024-mumbai": "/images/vehicles/mahindra-scorpio-n.jpg",
+    "hyundai-creta-sxo-turbo-2024-goa": "/images/vehicles/hyundai-creta.jpg",
+    "tata-safari-dark-edition-2024-delhi": "/images/vehicles/tata-safari.jpg",
+    "toyota-innova-hycross-hybrid-2024-bengaluru": "/images/vehicles/toyota-innova-hycross.jpg",
+    "maruti-suzuki-swift-zxi-2024-goa": "/images/vehicles/maruti-swift.jpg",
+    "skoda-slavia-15-tsi-2024-delhi": "/images/vehicles/skoda-slavia.png",
+    "bmw-330li-m-sport-2024-bengaluru": "/images/vehicles/bmw-330li.jpg",
+    "royal-enfield-hunter-350-2024-goa": "/images/vehicles/re-hunter-350.png",
+    "honda-activa-6g-2024-goa": "/images/vehicles/honda-activa.jpg",
+    "mahindra-bolero-camper-4x4-2024-jaipur": "/images/vehicles/mahindra-bolero-camper.jpg",
+  };
+
   for (const vDef of vehicleDefs) {
     const { specs, images, reviews, ...baseFields } = vDef;
+    if (images && images.length > 0 && vehicleImageMap[vDef.slug]) {
+      images[0].url = vehicleImageMap[vDef.slug];
+    }
     const vehicle = await prisma.vehicle.create({
       data: {
         ...baseFields,
