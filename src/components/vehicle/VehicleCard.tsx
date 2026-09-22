@@ -16,7 +16,7 @@ export default function VehicleCard({ vehicle, searchStart, searchEnd }: Vehicle
 
   const images = vehicle.images && vehicle.images.length > 0
     ? vehicle.images
-    : [{ url: "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=1200&q=80", id: "default", vehicleId: vehicle.id, isCover: true, sortOrder: 0 }];
+    : [{ url: "/images/vehicles/mahindra-thar.jpg", id: "default", vehicleId: vehicle.id, isCover: true, sortOrder: 0 }];
 
   const handlePrevImage = (e: React.MouseEvent) => {
     e.preventDefault();
