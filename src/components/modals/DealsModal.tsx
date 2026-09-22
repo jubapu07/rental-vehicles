@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { X, Sparkles, Tag, ArrowRight, ShieldCheck, Check } from "lucide-react";
+import { X, Tag, ArrowRight, ShieldCheck, Check } from "lucide-react";
 
 interface DealsModalProps {
   isOpen: boolean;
@@ -13,31 +13,40 @@ export default function DealsModal({ isOpen, onClose }: DealsModalProps) {
 
   const deals = [
     {
-      title: "Santa Rosa Coastal SUV Escapes",
-      badge: "Save 49%",
-      agency: "Hertz",
-      city: "Santa Rosa",
-      description: "Book 5+ days on full-size SUVs (Jeep Grand Cherokee, Toyota RAV4 AWD). Unlimited mileage and collision coverage included.",
-      promoCode: "COASTAL49",
-      href: "/explore?city=Santa%20Rosa&category=CAR",
-    },
-    {
-      title: "Wine Country Weekend Specials",
-      badge: "Save 35%",
-      agency: "Enterprise",
-      city: "Santa Rosa",
-      description: "Exclusive rate on luxury SUVs and convertibles for Sonoma & Napa valley touring.",
-      promoCode: "SONOMA35",
-      href: "/explore?city=Santa%20Rosa",
-    },
-    {
-      title: "Eco Fleet Electric Discount",
+      title: "Goa Coastal & Beach Thar 4x4 Specials",
       badge: "Save 40%",
-      agency: "Budget",
-      city: "Santa Rosa",
-      description: "Tesla Model Y & EV crossovers with complimentary Supercharging network access.",
-      promoCode: "GREENCALI",
-      href: "/explore?city=Santa%20Rosa&fuelType=EV",
+      agency: "Zoomcar",
+      city: "Goa",
+      description: "Rent iconic Mahindra Thar 4x4 hard top or convertible for exploring North & South Goa beaches. Unlimited km & zero security deposit waiver available.",
+      promoCode: "GOAWAVES",
+      href: "/explore?city=Goa&category=CAR",
+    },
+    {
+      title: "Western Ghats & Coorg Expedition (Scorpio-N & Fortuner)",
+      badge: "Save 35%",
+      agency: "Revv",
+      city: "Bengaluru",
+      description: "Heavy-duty 4x4 SUVs with shift-on-the-fly low range transfer cases for coffee estate trails and hill stations.",
+      promoCode: "WESTERNGHATS",
+      href: "/explore?city=Bengaluru&category=CAR",
+    },
+    {
+      title: "Himalayan 450 Leh-Ladakh Touring Pass",
+      badge: "Save 45%",
+      agency: "Avis India",
+      city: "New Delhi",
+      description: "Brand new Royal Enfield Himalayan 450 (Kamet White) pre-fitted with panniers and crash guards for high-altitude passes.",
+      promoCode: "LADAKH45",
+      href: "/explore?category=MOTORCYCLE",
+    },
+    {
+      title: "Mumbai-Pune Expressway Weekend Super Deals",
+      badge: "Save 30%",
+      agency: "MyChoize",
+      city: "Mumbai",
+      description: "Automatic SUVs and Tata Nexon EVs with FASTag pre-installed for seamless Khandala, Lonavala & Mahabaleshwar drives.",
+      promoCode: "LONAVALA30",
+      href: "/explore?city=Mumbai",
     },
   ];
 
@@ -61,13 +70,13 @@ export default function DealsModal({ isOpen, onClose }: DealsModalProps) {
               <Tag className="w-4 h-4 text-white" />
             </span>
             <span className="text-xs font-bold uppercase tracking-wider text-amber-100">
-              Exclusive Comparison Discounts
+              Exclusive India Rental Discounts
             </span>
           </div>
 
-          <h3 className="text-2xl font-black">Save Up to 49% on Car Rentals</h3>
+          <h3 className="text-2xl font-black">Save Up to 49% Across India</h3>
           <p className="text-xs text-amber-50 mt-1 font-normal">
-            Aggregated real-time rates compared across Hertz, Avis, Enterprise, Budget and trusted regional hosts.
+            Real-time negotiated deals across Zoomcar, Revv, Avis India, Hertz India, and certified fleet hosts.
           </p>
         </div>
 

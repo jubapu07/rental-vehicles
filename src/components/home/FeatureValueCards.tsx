@@ -10,7 +10,7 @@ interface FeatureValueCardsProps {
   currentCity?: string;
 }
 
-export default function FeatureValueCards({ currentCity = "Santa Rosa, CA" }: FeatureValueCardsProps) {
+export default function FeatureValueCards({ currentCity = "Bengaluru, KA" }: FeatureValueCardsProps) {
   const [isPriceTrackingOpen, setIsPriceTrackingOpen] = useState(false);
   const [isDealsOpen, setIsDealsOpen] = useState(false);
 

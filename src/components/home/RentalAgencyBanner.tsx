@@ -5,84 +5,93 @@ import Link from "next/link";
 export default function RentalAgencyBanner() {
   const agencies = [
     {
-      name: "Hertz",
-      query: "Hertz",
+      name: "Zoomcar",
+      query: "Zoomcar",
       logo: (
-        <span className="font-black text-xl tracking-tighter text-slate-900 group-hover:text-amber-500 transition-colors">
-          Hertz<span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-400 ml-0.5"></span>
-        </span>
+        <div className="flex items-center gap-1.5 group-hover:scale-105 transition-transform">
+          <div className="w-6 h-6 rounded-full bg-[#10B981] text-white flex items-center justify-center text-xs font-black shadow-xs">
+            Z
+          </div>
+          <span className="font-black text-lg tracking-tight text-[#0F2432]">
+            zoom<span className="text-[#10B981]">car</span>
+          </span>
+        </div>
       ),
     },
     {
-      name: "AVIS",
+      name: "Revv",
+      query: "Revv",
+      logo: (
+        <div className="flex items-center gap-1 group-hover:scale-105 transition-transform">
+          <span className="font-black text-xl tracking-tighter text-[#0EA5E9]">
+            re<span className="text-[#0284C7] italic">vv</span>
+          </span>
+          <span className="text-[8px] font-bold uppercase tracking-widest px-1 py-0.5 rounded bg-sky-50 text-sky-700 border border-sky-200">
+            Self-Drive
+          </span>
+        </div>
+      ),
+    },
+    {
+      name: "Avis India",
       query: "Avis",
       logo: (
-        <span className="font-black text-xl tracking-wider text-[#D40029] group-hover:scale-105 transition-transform">
-          AVIS
-        </span>
-      ),
-    },
-    {
-      name: "Enterprise",
-      query: "Enterprise",
-      logo: (
-        <div className="flex items-center gap-1">
-          <div className="w-5 h-5 rounded-xs bg-[#007A33] text-white flex items-center justify-center text-[10px] font-black">
-            e
-          </div>
-          <span className="font-extrabold text-base tracking-tight text-[#007A33]">
-            enterprise
+        <div className="flex items-baseline gap-1 group-hover:scale-105 transition-transform">
+          <span className="font-black text-xl tracking-wider text-[#D40029]">
+            AVIS
+          </span>
+          <span className="text-[9px] font-bold text-slate-500 uppercase tracking-tight">
+            India
           </span>
         </div>
       ),
     },
     {
-      name: "National Car Rental",
-      query: "National",
+      name: "Hertz India",
+      query: "Hertz",
       logo: (
-        <div className="flex items-center gap-1.5 px-2 py-0.5 rounded bg-[#006A4E] text-white">
-          <div className="w-3.5 h-3.5 rounded-xs bg-emerald-400 flex items-center justify-center text-[8px] font-black text-[#006A4E]">
-            N
-          </div>
-          <span className="font-extrabold text-xs tracking-tight uppercase">
-            National
+        <div className="flex items-center gap-1 group-hover:scale-105 transition-transform">
+          <span className="font-black text-xl tracking-tighter text-slate-900">
+            Hertz<span className="inline-block w-1.5 h-1.5 rounded-full bg-amber-400 ml-0.5"></span>
           </span>
         </div>
       ),
     },
     {
-      name: "Budget",
+      name: "MyChoize",
+      query: "MyChoize",
+      logo: (
+        <div className="flex items-center gap-1 group-hover:scale-105 transition-transform">
+          <span className="font-extrabold text-base tracking-tight text-[#9333EA]">
+            My<span className="font-black text-[#7E22CE]">Choize</span>
+          </span>
+          <span className="text-[7px] font-semibold text-slate-400 uppercase">
+            ORIX
+          </span>
+        </div>
+      ),
+    },
+    {
+      name: "Myles",
+      query: "Myles",
+      logo: (
+        <div className="flex items-center gap-1 group-hover:scale-105 transition-transform">
+          <span className="font-black text-lg tracking-tight text-[#DC2626]">
+            myles<span className="text-amber-500">.</span>
+          </span>
+        </div>
+      ),
+    },
+    {
+      name: "Budget India",
       query: "Budget",
       logo: (
-        <div className="flex items-center gap-1">
-          <span className="w-2.5 h-5 bg-[#FF6A13] skew-x-[-18deg] rounded-xs inline-block"></span>
-          <span className="font-black text-lg tracking-tight text-[#002868]">
+        <div className="flex items-center gap-1 group-hover:scale-105 transition-transform">
+          <span className="w-2.5 h-4.5 bg-[#FF6A13] skew-x-[-18deg] rounded-xs inline-block"></span>
+          <span className="font-black text-base tracking-tight text-[#002868]">
             Budget
           </span>
         </div>
-      ),
-    },
-    {
-      name: "ACE RENT A CAR",
-      query: "ACE",
-      logo: (
-        <div className="flex flex-col items-center leading-none">
-          <span className="font-black text-sm tracking-wide text-[#003A70]">
-            ACE
-          </span>
-          <span className="text-[7px] font-black tracking-widest text-[#D9272E] uppercase">
-            Rent A Car
-          </span>
-        </div>
-      ),
-    },
-    {
-      name: "dollar.",
-      query: "Dollar",
-      logo: (
-        <span className="font-black text-lg tracking-tight text-[#BE123C] lowercase">
-          dollar<span className="text-amber-500 font-extrabold">.</span>
-        </span>
       ),
     },
   ];
@@ -95,7 +104,7 @@ export default function RentalAgencyBanner() {
             key={agency.name}
             href={`/explore?agency=${encodeURIComponent(agency.query)}`}
             className="group flex items-center justify-center px-3 py-1.5 rounded-xl hover:bg-slate-50 transition-all cursor-pointer opacity-90 hover:opacity-100 transform hover:-translate-y-0.5"
-            title={`View ${agency.name} car rental deals`}
+            title={`View ${agency.name} car rental deals across India`}
           >
             {agency.logo}
           </Link>

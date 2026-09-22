@@ -21,7 +21,7 @@ export default function HeroCarHireWidget({ onSearchChange }: HeroCarHireWidgetP
   const router = useRouter();
 
   // State
-  const [city, setCity] = useState("Santa Rosa, CA, United States");
+  const [city, setCity] = useState("Bengaluru, KA, India");
   const [dropoffCity, setDropoffCity] = useState("");
   const [differentDropoff, setDifferentDropoff] = useState(false);
   const [showDropoffMenu, setShowDropoffMenu] = useState(false);
@@ -40,16 +40,18 @@ export default function HeroCarHireWidget({ onSearchChange }: HeroCarHireWidgetP
   const [showCityDropdown, setShowCityDropdown] = useState(false);
   const [showDropoffDropdown, setShowDropoffDropdown] = useState(false);
 
-  // Quick Location Suggestions
+  // Popular Indian Mobility Hubs
   const locations = [
-    { name: "Santa Rosa, CA, United States", code: "STS", hub: "Sonoma County Airport" },
-    { name: "San Francisco, CA, United States", code: "SFO", hub: "Intl Airport & Downtown" },
-    { name: "Los Angeles, CA, United States", code: "LAX", hub: "LAX Gateway" },
-    { name: "Sacramento, CA, United States", code: "SMF", hub: "Capital Hub" },
-    { name: "Bengaluru, KA, India", code: "BLR", hub: "Kempegowda Intl" },
-    { name: "Mumbai, MH, India", code: "BOM", hub: "Chhatrapati Shivaji" },
-    { name: "Goa, GA, India", code: "GOI", hub: "Dabolim & Mopa" },
-    { name: "New Delhi, DL, India", code: "DEL", hub: "Indira Gandhi Intl" },
+    { name: "Bengaluru, KA, India", code: "BLR", hub: "Kempegowda Intl & Indiranagar" },
+    { name: "Goa (North & South), India", code: "GOI", hub: "Dabolim & Mopa Intl Airports" },
+    { name: "Mumbai, MH, India", code: "BOM", hub: "Chhatrapati Shivaji Intl & BKC" },
+    { name: "New Delhi / NCR, India", code: "DEL", hub: "Indira Gandhi Intl & Aerocity" },
+    { name: "Pune, MH, India", code: "PNQ", hub: "Pune Airport & Hinjawadi IT Park" },
+    { name: "Hyderabad, TS, India", code: "HYD", hub: "Rajiv Gandhi Intl & Gachibowli" },
+    { name: "Jaipur, RJ, India", code: "JAI", hub: "Jaipur Intl & Pink City" },
+    { name: "Kochi, KL, India", code: "COK", hub: "Cochin Intl & Fort Kochi" },
+    { name: "Chandigarh, PB, India", code: "IXC", hub: "Shimla & Manali Gateway" },
+    { name: "Chennai, TN, India", code: "MAA", hub: "Chennai Intl & OMR Tech Corridor" },
   ];
 
   const timeOptions = [
@@ -89,7 +91,7 @@ export default function HeroCarHireWidget({ onSearchChange }: HeroCarHireWidgetP
   };
 
   // Derive city short title for heading
-  const currentCityTitle = city.split(",")[0].trim() || "Santa Rosa";
+  const currentCityTitle = city.split(",")[0].trim() || "Bengaluru";
 
   const handleCitySelect = (selected: string) => {
     setCity(selected);

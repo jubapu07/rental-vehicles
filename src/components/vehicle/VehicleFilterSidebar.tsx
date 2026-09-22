@@ -199,13 +199,13 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
         </button>
       </div>
 
-      {/* 2c. Rental Agency Filter (Hertz, Avis, Enterprise, etc.) */}
+      {/* 2c. Rental Agency Filter (Zoomcar, Revv, Avis, Hertz, MyChoize, Myles) */}
       <div>
         <label className="block text-xs font-bold text-slate-900 uppercase tracking-wider mb-2">
           Rental Agency
         </label>
         <div className="grid grid-cols-2 gap-1.5">
-          {["ALL", "Hertz", "Avis", "Enterprise", "National", "Budget", "ACE", "Dollar"].map((ag) => (
+          {["ALL", "Zoomcar", "Revv", "Avis", "Hertz", "MyChoize", "Myles", "Budget"].map((ag) => (
             <button
               key={ag}
               type="button"
@@ -222,28 +222,28 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
         </div>
       </div>
 
-      {/* 3. Daily Rate Slider */}
+      {/* 3. Daily Rate Slider (INR Standard Range) */}
       <div>
         <div className="flex items-center justify-between mb-2">
           <label className="text-xs font-bold text-slate-900 uppercase tracking-wider">
             Max Daily Rate
           </label>
           <span className="text-sm font-extrabold text-[#0F2432] num-tabular">
-            ₹{parseInt(currentMaxPrice || "10000", 10).toLocaleString("en-IN")}/day
+            ₹{parseInt(currentMaxPrice || "12000", 10).toLocaleString("en-IN")}/day
           </span>
         </div>
         <input
           type="range"
-          min="800"
-          max="10000"
-          step="200"
+          min="500"
+          max="15000"
+          step="250"
           value={currentMaxPrice}
           onChange={(e) => updateParam("maxPrice", e.target.value)}
           className="w-full accent-[#E05A36] cursor-pointer"
         />
         <div className="flex justify-between text-[10px] text-slate-400 mt-1">
-          <span>₹800/day</span>
-          <span>₹10,000+/day</span>
+          <span>₹500/day</span>
+          <span>₹15,000+/day</span>
         </div>
       </div>
 

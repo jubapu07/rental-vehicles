@@ -80,7 +80,7 @@ export default async function HomePage() {
 
       {/* 3. VALUE PROPOSITION FEATURE CARDS (Discount, Price Tracking, Deep Filters) */}
       <section>
-        <FeatureValueCards currentCity="Santa Rosa, CA" />
+        <FeatureValueCards currentCity="Bengaluru, KA" />
       </section>
 
       {/* CATEGORY SHOWCASE CARDS */}

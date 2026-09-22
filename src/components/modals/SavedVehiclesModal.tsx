@@ -42,27 +42,37 @@ export default function SavedVehiclesModal({
       if (stored) {
         setItems(JSON.parse(stored));
       } else {
-        // Preload default sample saved vehicles so the modal is instantly rich
+        // Preload default popular Indian vehicles
         const defaultSample: SavedVehicleItem[] = [
           {
             id: "sample-1",
-            title: "2024 Jeep Grand Cherokee L 4x4",
+            title: "2024 Mahindra Thar 4x4 Hard Top (mHawk Diesel AT)",
             category: "CAR",
-            dayRate: 79,
-            city: "Santa Rosa",
-            imageUrl: "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=600&q=80",
+            dayRate: 3499,
+            city: "Bengaluru",
+            imageUrl: "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=600&q=80",
             rating: 5.0,
-            slug: "jeep-grand-cherokee-l-4x4-2024-santa-rosa",
+            slug: "mahindra-thar-4x4-hard-top-2024-bengaluru",
           },
           {
             id: "sample-2",
-            title: "2024 Toyota RAV4 Hybrid AWD",
+            title: "2024 Toyota Fortuner Legender 4x4 AT",
             category: "CAR",
-            dayRate: 59,
-            city: "Santa Rosa",
-            imageUrl: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80",
+            dayRate: 5999,
+            city: "New Delhi",
+            imageUrl: "https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=600&q=80",
+            rating: 5.0,
+            slug: "toyota-fortuner-legender-4x4-2024-delhi",
+          },
+          {
+            id: "sample-3",
+            title: "2024 Royal Enfield Himalayan 450 (Kamet White)",
+            category: "MOTORCYCLE",
+            dayRate: 1499,
+            city: "Goa",
+            imageUrl: "https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=600&q=80",
             rating: 4.9,
-            slug: "toyota-rav4-hybrid-awd-2024-santa-rosa",
+            slug: "royal-enfield-himalayan-450-2024-bengaluru",
           },
         ];
         setItems(defaultSample);
@@ -142,7 +152,7 @@ export default function SavedVehiclesModal({
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={v.imageUrl || "https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=400&q=80"}
+                  src={v.imageUrl || "https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?auto=format&fit=crop&w=400&q=80"}
                   alt={v.title}
                   className="w-20 h-16 rounded-xl object-cover shrink-0"
                 />
@@ -160,7 +170,7 @@ export default function SavedVehiclesModal({
                   </div>
                   <h4 className="font-bold text-xs text-slate-900 truncate">{v.title}</h4>
                   <p className="text-xs font-black text-slate-900 mt-0.5">
-                    ${v.dayRate} <span className="text-[10px] font-normal text-slate-500">/day</span>
+                    ₹{v.dayRate.toLocaleString("en-IN")} <span className="text-[10px] font-normal text-slate-500">/day</span>
                   </p>
                 </div>
 
@@ -199,7 +209,7 @@ export default function SavedVehiclesModal({
               Continue Browsing
             </Link>
             <Link
-              href={`/explore?city=${items[0]?.city || "Santa Rosa"}`}
+              href={`/explore?city=${items[0]?.city || "Bengaluru"}`}
               onClick={onClose}
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[#0F2432] hover:bg-[#E05A36] text-white text-xs font-bold transition-colors"
             >
