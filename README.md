@@ -7,6 +7,7 @@ A modern, responsive vehicle rental web application built with Next.js 16, React
 - **Panoramic Coastal Hero & Mobility Hubs**: Dynamic destination car hire selector (`Bengaluru car hire`, `Goa car hire`, `Mumbai car hire`, etc.), same/different drop-off toggle, and driver age selector (25–65, 18–24, 65+, custom).
 - **Search Ribbon**: Fast autocomplete for Indian airports & metro hubs (Kempegowda BLR, Dabolim & Mopa GOI, Chhatrapati Shivaji BOM, Indira Gandhi DEL, etc.), date & time pickers with Noon selectors, and quick `SUVs only` filter.
 - **Top Indian Rental Agencies**: Direct agency filtering for Zoomcar, Revv, Avis India, Hertz India, MyChoize, Myles, and Budget India.
+- **Authentic Model-Matched Fleet Imagery**: Every single vehicle card and detail view features authentic, high-resolution photography accurately depicting the named vehicle (Thar 4x4, Fortuner Legender, Scorpio-N, Jimny 4x4, Himalayan 450, Classic 350, KTM Duke, Swift, Innova Hycross, Activa 6G, etc.) served directly from local assets.
 - **Indian Vehicle Fleet (INR ₹ Pricing)**:
   - **SUVs & 4x4 Off-Roaders**: Mahindra Thar 4x4 Hard Top, Mahindra Scorpio-N 4XPLOR, Toyota Fortuner Legender 4x4, Mahindra XUV700 AX7L, Hyundai Creta SX(O), Tata Safari Dark Edition, Maruti Suzuki Jimny 4x4.
   - **Family MPVs & Premium Sedans**: Toyota Innova Hycross ZX(O) Hybrid, Maruti Suzuki Swift ZXi+, Skoda Slavia 1.5 TSI, BMW 330Li M Sport.
