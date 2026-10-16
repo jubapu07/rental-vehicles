@@ -1,18 +1,58 @@
 @import "tailwindcss";
 
 :root {
-  --canvas-bg: #F8FAFC;
+  /* Color Hunt Palette: #464B71 (Deep Slate Indigo), #118AB2 (Ocean Blue), #7CD5C7 (Aqua Mint), #F2F2ED (Linen White) */
+  --canvas-bg: #F2F2ED;
   --canvas-card: #FFFFFF;
-  --brand-navy: #0F2432;
-  --brand-navy-light: #1A3447;
-  --brand-obsidian: #090D14;
-  --brand-terracotta: #E05A36;
-  --brand-amber: #E67E22;
-  --brand-terracotta-hover: #C94C2B;
-  --system-green: #15803D;
-  --system-crimson: #DC2626;
-  --spec-slate: #64748B;
-  --border-subtle: #E2E8F0;
+  --brand-navy: #464B71;
+  --brand-navy-light: #585E8C;
+  --brand-ocean: #118AB2;
+  --brand-ocean-hover: #0D6E8E;
+  --brand-mint: #7CD5C7;
+  --brand-mint-dark: #168B7D;
+  --brand-linen: #F2F2ED;
+  --system-green: #059669;
+  --system-crimson: #E11D48;
+  --spec-slate: #5D6385;
+  --border-subtle: #DFDFD5;
+  --text-main: #202438;
+  --text-muted: #676C8F;
+
+  /* Aliases for backwards compatibility */
+  --brand-espresso: #464B71;
+  --brand-espresso-light: #34395A;
+  --brand-rust: #118AB2;
+  --brand-rust-hover: #0D6E8E;
+  --brand-gold: #7CD5C7;
+  --brand-gold-light: #A3E4DB;
+  --brand-cream: #F2F2ED;
+}
+
+.dark {
+  --canvas-bg: #1B1E30;
+  --canvas-card: #272B44;
+  --brand-navy: #464B71;
+  --brand-navy-light: #585E8C;
+  --brand-ocean: #118AB2;
+  --brand-ocean-hover: #1FAFDC;
+  --brand-mint: #7CD5C7;
+  --brand-mint-dark: #7CD5C7;
+  --brand-linen: #F2F2ED;
+  --system-green: #10B981;
+  --system-crimson: #F43F5E;
+  --spec-slate: #9BA2C4;
+  --border-subtle: #373D60;
+  --text-main: #F2F2ED;
+  --text-muted: #A5ABC9;
+
+  /* Aliases for backwards compatibility */
+  --brand-espresso: #141624;
+  --brand-espresso-light: #3D436A;
+  --brand-rust: #118AB2;
+  --brand-rust-hover: #1FAFDC;
+  --brand-gold: #7CD5C7;
+  --brand-gold-light: #B4EBE3;
+  --brand-cream: #F2F2ED;
 }
 
 @theme {
@@ -20,56 +60,119 @@
   --color-canvas-card: var(--canvas-card);
   --color-brand-navy: var(--brand-navy);
   --color-brand-navy-light: var(--brand-navy-light);
-  --color-brand-obsidian: var(--brand-obsidian);
-  --color-brand-terracotta: var(--brand-terracotta);
-  --color-brand-amber: var(--brand-amber);
-  --color-brand-terracotta-hover: var(--brand-terracotta-hover);
+  --color-brand-ocean: var(--brand-ocean);
+  --color-brand-ocean-hover: var(--brand-ocean-hover);
+  --color-brand-mint: var(--brand-mint);
+  --color-brand-linen: var(--brand-linen);
+  --color-brand-espresso: var(--brand-espresso);
+  --color-brand-espresso-light: var(--brand-espresso-light);
+  --color-brand-rust: var(--brand-rust);
+  --color-brand-rust-hover: var(--brand-rust-hover);
+  --color-brand-gold: var(--brand-gold);
+  --color-brand-gold-light: var(--brand-gold-light);
+  --color-brand-cream: var(--brand-cream);
   --color-system-green: var(--system-green);
   --color-system-crimson: var(--system-crimson);
   --color-spec-slate: var(--spec-slate);
   --color-border-subtle: var(--border-subtle);
+  --color-text-main: var(--text-main);
+  --color-text-muted: var(--text-muted);
 }
 
 body {
   background-color: var(--canvas-bg);
-  color: var(--brand-obsidian);
-  font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Inter", "Segoe UI", Roboto, sans-serif;
+  color: var(--text-main);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Outfit", Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Custom modern scrollbar */
+/* Custom scrollbar matching indigo & ocean palette */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #F1F5F9;
+  background: var(--canvas-bg);
 }
 ::-webkit-scrollbar-thumb {
-  background: #CBD5E1;
+  background: #D0D0C7;
   border-radius: 9999px;
 }
+.dark ::-webkit-scrollbar-thumb {
+  background: #373D60;
+}
 ::-webkit-scrollbar-thumb:hover {
-  background: #94A3B8;
+  background: #118AB2;
 }
 
-/* Glassmorphism utilities */
+/* Glassmorphism utilities with palette tones */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  background: rgba(242, 242, 237, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(223, 223, 213, 0.85);
+}
+
+.dark .glass-panel {
+  background: rgba(27, 30, 48, 0.9);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(55, 61, 96, 0.8);
 }
 
 .glass-dark {
-  background: rgba(15, 36, 50, 0.9);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(27, 30, 48, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(124, 213, 199, 0.25);
 }
 
 /* Number display with tabular lining figures */
 .num-tabular {
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.02em;
+}
+
+/* Highway Road Speed Lines with ocean cyan glow */
+@keyframes speedLines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 1000px;
+  }
+}
+
+.road-speed-lines {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 40px,
+    rgba(17, 138, 178, 0.08) 40px,
+    rgba(17, 138, 178, 0.08) 80px
+  );
+  animation: speedLines 20s linear infinite;
+}
+
+/* Clean Skeleton Shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-shimmer {
+  background: linear-gradient(90deg, #EBEBE5 25%, #DFDFD5 50%, #EBEBE5 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+.dark .skeleton-shimmer {
+  background: linear-gradient(90deg, #272B44 25%, #373D60 50%, #272B44 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
 }
