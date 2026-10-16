@@ -148,9 +148,9 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
     <div className="fixed inset-0 z-50 bg-slate-900/75 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
       <div className="bg-white rounded-3xl max-w-2xl w-full border border-slate-200 shadow-2xl overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200">
         {/* Header */}
-        <div className="p-6 bg-[#0F2432] text-white flex items-center justify-between">
+        <div className="p-6 bg-[#464B71] text-white flex items-center justify-between">
           <div>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-[#E05A36] bg-[#E05A36]/20 px-2.5 py-0.5 rounded-md">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-[#118AB2] bg-[#118AB2]/20 px-2.5 py-0.5 rounded-md">
               Host Onboarding Wizard
             </span>
             <h2 className="text-xl font-black mt-1">List a New Fleet Vehicle</h2>
@@ -171,7 +171,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
             <div
               key={s}
               className={`flex-1 transition-all duration-300 ${
-                s <= step ? "bg-[#E05A36]" : "bg-transparent"
+                s <= step ? "bg-[#118AB2]" : "bg-transparent"
               }`}
             />
           ))}
@@ -198,11 +198,11 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                     onClick={() => setCategory("CAR")}
                     className={`p-4 rounded-2xl border text-center transition-all cursor-pointer ${
                       category === "CAR"
-                        ? "border-[#E05A36] bg-[#E05A36]/5 text-[#0F2432] ring-2 ring-[#E05A36]"
+                        ? "border-[#118AB2] bg-[#118AB2]/5 text-[#464B71] ring-2 ring-[#118AB2]"
                         : "border-slate-200 hover:bg-slate-50 text-slate-600"
                     }`}
                   >
-                    <Car className="w-6 h-6 mx-auto mb-1.5 text-[#E05A36]" />
+                    <Car className="w-6 h-6 mx-auto mb-1.5 text-[#118AB2]" />
                     <span className="text-xs font-bold block">Automobile</span>
                     <span className="text-[10px] text-slate-400">Sedan, Sport, SUV</span>
                   </button>
@@ -212,11 +212,11 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                     onClick={() => setCategory("MOTORCYCLE")}
                     className={`p-4 rounded-2xl border text-center transition-all cursor-pointer ${
                       category === "MOTORCYCLE"
-                        ? "border-[#E67E22] bg-[#E67E22]/5 text-[#0F2432] ring-2 ring-[#E67E22]"
+                        ? "border-[#7CD5C7] bg-[#7CD5C7]/5 text-[#464B71] ring-2 ring-[#7CD5C7]"
                         : "border-slate-200 hover:bg-slate-50 text-slate-600"
                     }`}
                   >
-                    <Bike className="w-6 h-6 mx-auto mb-1.5 text-[#E67E22]" />
+                    <Bike className="w-6 h-6 mx-auto mb-1.5 text-[#7CD5C7]" />
                     <span className="text-xs font-bold block">Motorcycle</span>
                     <span className="text-[10px] text-slate-400">Touring, Sport, Cruiser</span>
                   </button>
@@ -226,7 +226,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                     onClick={() => setCategory("TRUCK")}
                     className={`p-4 rounded-2xl border text-center transition-all cursor-pointer ${
                       category === "TRUCK"
-                        ? "border-emerald-600 bg-emerald-50 text-[#0F2432] ring-2 ring-emerald-600"
+                        ? "border-emerald-600 bg-emerald-50 text-[#464B71] ring-2 ring-emerald-600"
                         : "border-slate-200 hover:bg-slate-50 text-slate-600"
                     }`}
                   >
@@ -245,7 +245,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                     placeholder="e.g. Porsche, BMW, Ford"
                     value={brand}
                     onChange={(e) => setBrand(e.target.value)}
-                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#0F2432]"
+                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#464B71]"
                   />
                 </div>
                 <div>
@@ -255,7 +255,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                     placeholder="e.g. 911, M3, R1250 GS"
                     value={model}
                     onChange={(e) => setModel(e.target.value)}
-                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#0F2432]"
+                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#464B71]"
                   />
                 </div>
                 <div>
@@ -264,7 +264,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                     type="number"
                     value={year}
                     onChange={(e) => setYear(e.target.value)}
-                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#0F2432]"
+                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#464B71]"
                   />
                 </div>
               </div>
@@ -275,7 +275,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                   <select
                     value={city}
                     onChange={(e) => setCity(e.target.value)}
-                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#0F2432]"
+                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#464B71]"
                   >
                     <option value="Bengaluru">Bengaluru, Karnataka</option>
                     <option value="Mumbai">Mumbai, Maharashtra</option>
@@ -293,7 +293,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                     placeholder="e.g. 500 Congress Ave"
                     value={locationAddress}
                     onChange={(e) => setLocationAddress(e.target.value)}
-                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#0F2432]"
+                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#464B71]"
                   />
                 </div>
               </div>
@@ -305,7 +305,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                   placeholder="Highlight unique performance packages, upgrades, or rules..."
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full text-xs font-normal px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#0F2432]"
+                  className="w-full text-xs font-normal px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#464B71]"
                 />
               </div>
 
@@ -313,7 +313,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                 <button
                   type="button"
                   onClick={handleNextStep1}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0F2432] hover:bg-[#E05A36] text-white font-bold text-xs shadow-md transition-colors cursor-pointer"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#464B71] hover:bg-[#118AB2] text-white font-bold text-xs shadow-md transition-colors cursor-pointer"
                 >
                   <span>Continue to Technical Specs</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -327,7 +327,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
             <div className="space-y-5">
               <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
                 <p className="text-xs font-bold text-slate-800">
-                  Configuring attributes for: <span className="text-[#E05A36]">{category}</span>
+                  Configuring attributes for: <span className="text-[#118AB2]">{category}</span>
                 </p>
               </div>
 
@@ -434,7 +434,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                       id="helmet"
                       checked={helmetProvided}
                       onChange={(e) => setHelmetProvided(e.target.checked)}
-                      className="w-4 h-4 accent-[#E05A36] rounded"
+                      className="w-4 h-4 accent-[#118AB2] rounded"
                     />
                     <label htmlFor="helmet" className="text-xs font-bold text-slate-800">
                       DOT/ECE Certified Helmet Provided with Rental
@@ -482,7 +482,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                       id="cdl"
                       checked={commercialLicenseRequired}
                       onChange={(e) => setCommercialLicenseRequired(e.target.checked)}
-                      className="w-4 h-4 accent-[#E05A36] rounded"
+                      className="w-4 h-4 accent-[#118AB2] rounded"
                     />
                     <label htmlFor="cdl" className="text-xs font-bold text-slate-800">
                       Commercial Driver License (CDL) Required
@@ -503,7 +503,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                 <button
                   type="button"
                   onClick={() => setStep(3)}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0F2432] hover:bg-[#E05A36] text-white font-bold text-xs shadow-md transition-colors cursor-pointer"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#464B71] hover:bg-[#118AB2] text-white font-bold text-xs shadow-md transition-colors cursor-pointer"
                 >
                   <span>Continue to Photography</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -521,7 +521,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
 
               <div>
                 <label className="block text-[11px] font-bold text-slate-700 mb-1 flex items-center gap-1.5">
-                  <ImageIcon className="w-3.5 h-3.5 text-[#E05A36]" />
+                  <ImageIcon className="w-3.5 h-3.5 text-[#118AB2]" />
                   Cover Photo URL (Primary Card & Bento Spotlight)
                 </label>
                 <input
@@ -580,7 +580,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                 <button
                   type="button"
                   onClick={() => setStep(4)}
-                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#0F2432] hover:bg-[#E05A36] text-white font-bold text-xs shadow-md transition-colors cursor-pointer"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#464B71] hover:bg-[#118AB2] text-white font-bold text-xs shadow-md transition-colors cursor-pointer"
                 >
                   <span>Continue to Rates & Calendar</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -601,7 +601,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                     type="number"
                     value={dayRate}
                     onChange={(e) => setDayRate(e.target.value)}
-                    className="w-full text-sm font-extrabold px-3 py-2.5 rounded-xl border border-slate-300 text-[#0F2432]"
+                    className="w-full text-sm font-extrabold px-3 py-2.5 rounded-xl border border-slate-300 text-[#464B71]"
                   />
                 </div>
                 <div>
@@ -623,7 +623,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                   id="instant"
                   checked={instantBookable}
                   onChange={(e) => setInstantBookable(e.target.checked)}
-                  className="w-4 h-4 accent-[#E05A36] rounded"
+                  className="w-4 h-4 accent-[#118AB2] rounded"
                 />
                 <label htmlFor="instant" className="text-xs font-bold text-slate-800">
                   Enable Instant Booking (Boosts search rank & booking conversion by 40%)
@@ -668,7 +668,7 @@ export default function ListingWizardModal({ onClose, onSuccess }: ListingWizard
                 <button
                   type="submit"
                   disabled={loading}
-                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#E05A36] hover:bg-[#C94C2B] disabled:opacity-50 text-white font-extrabold text-sm shadow-md transition-all cursor-pointer"
+                  className="flex items-center gap-2 px-6 py-3 rounded-xl bg-[#118AB2] hover:bg-[#0D6E8E] disabled:opacity-50 text-white font-extrabold text-sm shadow-md transition-all cursor-pointer"
                 >
                   {loading ? (
                     <>

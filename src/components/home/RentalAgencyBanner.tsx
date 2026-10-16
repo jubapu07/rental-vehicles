@@ -12,7 +12,7 @@ export default function RentalAgencyBanner() {
           <div className="w-6 h-6 rounded-full bg-[#10B981] text-white flex items-center justify-center text-xs font-black shadow-xs">
             Z
           </div>
-          <span className="font-black text-lg tracking-tight text-[#0F2432]">
+          <span className="font-black text-lg tracking-tight text-[#464B71]">
             zoom<span className="text-[#10B981]">car</span>
           </span>
         </div>
@@ -112,7 +112,7 @@ export default function RentalAgencyBanner() {
 
         <Link
           href="/explore"
-          className="text-xs font-bold text-slate-500 hover:text-[#E05A36] transition-colors px-2 py-1"
+          className="text-xs font-bold text-slate-500 hover:text-[#118AB2] transition-colors px-2 py-1"
         >
           ...and more
         </Link>

@@ -60,9 +60,9 @@ export default function CheckoutModal({ vehicle, quote, onClose }: CheckoutModal
     <div className="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
       <div className="bg-white rounded-3xl max-w-xl w-full border border-slate-200 shadow-2xl overflow-hidden my-8 animate-in fade-in zoom-in-95 duration-200">
         {/* Header */}
-        <div className="p-6 bg-[#0F2432] text-white flex items-center justify-between">
+        <div className="p-6 bg-[#464B71] text-white flex items-center justify-between">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-[#E05A36] flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-[#118AB2] flex items-center justify-center">
               <Lock className="w-4 h-4 text-white" />
             </div>
             <div>
@@ -109,7 +109,7 @@ export default function CheckoutModal({ vehicle, quote, onClose }: CheckoutModal
               </div>
               <div className="flex justify-between border-t border-slate-200 pt-2 font-bold">
                 <span>Total Charged:</span>
-                <span className="text-[#0F2432] num-tabular">₹{quote.totalPrice.toLocaleString("en-IN")}</span>
+                <span className="text-[#464B71] num-tabular">₹{quote.totalPrice.toLocaleString("en-IN")}</span>
               </div>
             </div>
 
@@ -120,7 +120,7 @@ export default function CheckoutModal({ vehicle, quote, onClose }: CheckoutModal
                   onClose();
                   router.push("/dashboard");
                 }}
-                className="flex-1 py-3 px-4 rounded-xl bg-[#0F2432] hover:bg-[#E05A36] text-white font-bold text-xs shadow-md transition-all cursor-pointer"
+                className="flex-1 py-3 px-4 rounded-xl bg-[#464B71] hover:bg-[#118AB2] text-white font-bold text-xs shadow-md transition-all cursor-pointer"
               >
                 Go to Trips Dashboard
               </button>
@@ -140,7 +140,7 @@ export default function CheckoutModal({ vehicle, quote, onClose }: CheckoutModal
               <div className="flex-1 min-w-0">
                 <p className="text-xs font-bold text-slate-900 truncate">{vehicle.title}</p>
                 <p className="text-[11px] text-slate-500">{vehicle.locationAddress}, {vehicle.city}</p>
-                <p className="text-[11px] font-semibold text-[#E05A36] mt-0.5">
+                <p className="text-[11px] font-semibold text-[#118AB2] mt-0.5">
                   {new Date(quote.startDate).toLocaleDateString()} → {new Date(quote.endDate).toLocaleDateString()} ({quote.totalDays} Days)
                 </p>
               </div>
@@ -172,7 +172,7 @@ export default function CheckoutModal({ vehicle, quote, onClose }: CheckoutModal
 
               <div className="flex justify-between items-center text-sm font-black text-slate-900 border-t border-slate-200 pt-3">
                 <span>Total Certified Due</span>
-                <span className="text-base text-[#0F2432] num-tabular">₹{quote.totalPrice.toLocaleString("en-IN")}</span>
+                <span className="text-base text-[#464B71] num-tabular">₹{quote.totalPrice.toLocaleString("en-IN")}</span>
               </div>
             </div>
 
@@ -202,7 +202,7 @@ export default function CheckoutModal({ vehicle, quote, onClose }: CheckoutModal
                   type="text"
                   value={nameOnCard}
                   onChange={(e) => setNameOnCard(e.target.value)}
-                  className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#0F2432]"
+                  className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#464B71]"
                 />
               </div>
 
@@ -213,7 +213,7 @@ export default function CheckoutModal({ vehicle, quote, onClose }: CheckoutModal
                     type="text"
                     value={cardNumber}
                     onChange={(e) => setCardNumber(e.target.value)}
-                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#0F2432] pr-10"
+                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#464B71] pr-10"
                   />
                   <CreditCard className="w-4 h-4 text-slate-400 absolute right-3 top-3" />
                 </div>
@@ -226,7 +226,7 @@ export default function CheckoutModal({ vehicle, quote, onClose }: CheckoutModal
                     type="text"
                     value={cardExpiry}
                     onChange={(e) => setCardExpiry(e.target.value)}
-                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#0F2432]"
+                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#464B71]"
                   />
                 </div>
                 <div>
@@ -235,7 +235,7 @@ export default function CheckoutModal({ vehicle, quote, onClose }: CheckoutModal
                     type="text"
                     value={cardCvc}
                     onChange={(e) => setCardCvc(e.target.value)}
-                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#0F2432]"
+                    className="w-full text-xs font-semibold px-3 py-2.5 rounded-xl border border-slate-300 focus:outline-hidden focus:ring-2 focus:ring-[#464B71]"
                   />
                 </div>
               </div>
@@ -253,7 +253,7 @@ export default function CheckoutModal({ vehicle, quote, onClose }: CheckoutModal
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-3.5 px-4 rounded-xl bg-[#E05A36] hover:bg-[#C94C2B] disabled:opacity-50 text-white font-extrabold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+              className="w-full py-3.5 px-4 rounded-xl bg-[#118AB2] hover:bg-[#0D6E8E] disabled:opacity-50 text-white font-extrabold text-sm shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               {loading ? (
                 <>

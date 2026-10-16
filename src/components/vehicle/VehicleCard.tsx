@@ -49,7 +49,7 @@ export default function VehicleCard({ vehicle, searchStart, searchEnd }: Vehicle
   const renderSpecBadge = () => {
     if (vehicle.category === "MOTORCYCLE") {
       return (
-        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-500/15 text-[#E67E22] text-[11px] font-bold border border-amber-500/20">
+        <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-500/15 text-[#7CD5C7] text-[11px] font-bold border border-amber-500/20">
           <Gauge className="w-3 h-3" />
           {vehicle.specs?.engineDisplacementCc || 1000}cc • {vehicle.specs?.bikeType || "Sport"}
         </span>
@@ -66,7 +66,7 @@ export default function VehicleCard({ vehicle, searchStart, searchEnd }: Vehicle
     // CAR
     return (
       <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-sky-500/15 text-sky-800 text-[11px] font-bold border border-sky-500/20">
-        <Fuel className="w-3 h-3 text-[#E05A36]" />
+        <Fuel className="w-3 h-3 text-[#118AB2]" />
         {vehicle.specs?.fuelType === "EV" ? "Full EV" : vehicle.specs?.transmission || "Automatic"} • {vehicle.specs?.seats || 5} Seats
       </span>
     );
@@ -126,12 +126,12 @@ export default function VehicleCard({ vehicle, searchStart, searchEnd }: Vehicle
         {/* Floating Badges */}
         <div className="absolute top-3 left-3 flex flex-wrap items-center gap-1.5 pointer-events-none">
           {vehicle.instantBookable && (
-            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#E05A36] text-[10px] font-extrabold shadow-sm">
-              <Zap className="w-3 h-3 fill-[#E05A36]" />
+            <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md text-[#118AB2] text-[10px] font-extrabold shadow-sm">
+              <Zap className="w-3 h-3 fill-[#118AB2]" />
               INSTANT
             </span>
           )}
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#0F2432]/90 backdrop-blur-md text-white text-[10px] font-bold">
+          <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#464B71]/90 backdrop-blur-md text-white text-[10px] font-bold">
             <ShieldCheck className="w-3 h-3 text-emerald-400" />
             Verified Host
           </span>
@@ -163,7 +163,7 @@ export default function VehicleCard({ vehicle, searchStart, searchEnd }: Vehicle
           </div>
 
           {/* Vehicle Title & Location */}
-          <Link href={detailUrl} className="block group-hover:text-[#E05A36] transition-colors">
+          <Link href={detailUrl} className="block group-hover:text-[#118AB2] transition-colors">
             <h3 className="font-bold text-base text-slate-900 leading-snug line-clamp-1">
               {vehicle.title}
             </h3>
@@ -209,7 +209,7 @@ export default function VehicleCard({ vehicle, searchStart, searchEnd }: Vehicle
 
           <Link
             href={detailUrl}
-            className="inline-flex items-center justify-center px-4 py-2 rounded-xl text-xs font-bold text-white bg-[#0F2432] hover:bg-[#E05A36] shadow-xs transition-colors"
+            className="inline-flex items-center justify-center px-4 py-2 rounded-xl text-xs font-bold text-white bg-[#464B71] hover:bg-[#118AB2] shadow-xs transition-colors"
           >
             View Details
           </Link>

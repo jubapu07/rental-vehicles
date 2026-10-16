@@ -1,338 +1,36 @@
-import Link from "next/link";
-import { prisma } from "@/lib/prisma";
-import HeroCarHireWidget from "@/components/search/HeroCarHireWidget";
-import RentalAgencyBanner from "@/components/home/RentalAgencyBanner";
-import FeatureValueCards from "@/components/home/FeatureValueCards";
-import VehicleCard from "@/components/vehicle/VehicleCard";
-import { Car, Bike, Truck, ShieldCheck, Sparkles, ArrowRight, CheckCircle2, Zap } from "lucide-react";
-import { VehicleData } from "@/lib/types";
+import HeroCarHireWidget from "@/components/home/HeroCarHireWidget";
+import TrustBadges from "@/components/home/TrustBadges";
+import PopularCarsTabs from "@/components/home/PopularCarsTabs";
+import HowItWorks from "@/components/home/HowItWorks";
+import FestiveOffers from "@/components/home/FestiveOffers";
+import Testimonials from "@/components/home/Testimonials";
+import FaqSection from "@/components/home/FaqSection";
 
-// Force dynamic rendering to always query fresh active database records
 export const dynamic = "force-dynamic";
 
-export default async function HomePage() {
-  // Fetch featured vehicles from active database
-  const vehicles = await prisma.vehicle.findMany({
-    where: { isActive: true },
-    take: 8,
-    orderBy: { createdAt: "desc" },
-    include: {
-      host: true,
-      specs: true,
-      images: { orderBy: { sortOrder: "asc" } },
-      reviews: {
-        include: {
-          author: true,
-        },
-      },
-    },
-  });
-
-  // Calculate review averages
-  const enrichedVehicles: VehicleData[] = vehicles.map((v) => {
-    const totalReviews = v.reviews.length;
-    const avgRating = totalReviews > 0
-      ? Math.round((v.reviews.reduce((acc, r) => acc + r.rating, 0) / totalReviews) * 10) / 10
-      : 5.0;
-
-    return {
-      ...v,
-      category: v.category as "CAR" | "MOTORCYCLE" | "TRUCK",
-      specs: v.specs as unknown as VehicleData["specs"],
-      avgRating,
-      reviewCount: totalReviews,
-    };
-  });
-
-  // Dynamic fleet counts
-  const [totalVehicles, totalBookings, totalHosts] = await Promise.all([
-    prisma.vehicle.count({ where: { isActive: true } }),
-    prisma.booking.count(),
-    prisma.user.count({ where: { role: "HOST" } }),
-  ]);
-
+export default function HomePage() {
   return (
-    <div className="space-y-12 sm:space-y-16 pb-20">
-      {/* 1. PANORAMIC COASTAL HERO SECTION (Exact visual inspiration from screenshot) */}
-      <section className="relative min-h-[560px] sm:min-h-[620px] flex flex-col justify-center px-4 sm:px-6 lg:px-8 overflow-hidden pt-12 pb-16">
-        {/* Background Image: California Pacific Coastal Vista with dark sand, surf, and cliffs */}
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-1000 scale-100"
-          style={{
-            backgroundImage: "url('/images/coastal-hero.jpg')",
-          }}
-        >
-          {/* Subtle gradient overlays for text contrast and depth */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/25 to-black/30" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/20" />
-        </div>
+    <div className="space-y-4 pb-16">
+      {/* 1. Hero with Animated Car & Booking Widget */}
+      <HeroCarHireWidget />
 
-        {/* Content Container */}
-        <div className="relative z-10 max-w-7xl mx-auto w-full">
-          <HeroCarHireWidget />
-        </div>
-      </section>
+      {/* 2. Indian Trust & FASTag Badges */}
+      <TrustBadges />
 
-      {/* 2. RENTAL AGENCY PARTNERS BANNER (Hertz, AVIS, Enterprise, National, Budget, ACE, Dollar) */}
-      <section className="-mt-8 sm:-mt-10 relative z-20">
-        <RentalAgencyBanner />
-      </section>
+      {/* 3. Popular Indian Fleet with Live Category Switcher */}
+      <PopularCarsTabs />
 
-      {/* 3. VALUE PROPOSITION FEATURE CARDS (Discount, Price Tracking, Deep Filters) */}
-      <section>
-        <FeatureValueCards currentCity="Bengaluru, KA" />
-      </section>
+      {/* 4. How It Works (DigiLocker KYC, Delivery, Instant Refund) */}
+      <HowItWorks />
 
-      {/* CATEGORY SHOWCASE CARDS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-[#E05A36]">
-              Engineered for Every Journey
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-[#0F2432] mt-1">
-              Select Your Class of Transport
-            </h2>
-          </div>
-          <Link
-            href="/explore"
-            className="flex items-center gap-1.5 text-xs font-bold text-[#0F2432] hover:text-[#E05A36] transition-colors"
-          >
-            <span>Explore All {totalVehicles} Vehicles</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
+      {/* 5. Indian Festive & Weekend Promo Offers */}
+      <FestiveOffers />
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {/* Card 1: Performance Cars */}
-          <Link
-            href="/explore?category=CAR"
-            className="group relative rounded-3xl overflow-hidden aspect-4/3 md:aspect-3/4 bg-slate-900 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-end p-6 text-white"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80"
-              alt="Performance Cars"
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-70 group-hover:opacity-80"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
+      {/* 6. Real Highway Testimonials */}
+      <Testimonials />
 
-            <div className="relative z-10 space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-[#E05A36] flex items-center justify-center text-white shadow-md">
-                <Car className="w-5 h-5" />
-              </div>
-              <h3 className="text-xl font-black">Performance & Luxury Cars</h3>
-              <p className="text-xs text-slate-300 font-normal line-clamp-2">
-                Porsches, BMW M, and high-performance EVs designed for precision coast highway touring.
-              </p>
-              <div className="pt-2 flex items-center gap-1.5 text-xs font-bold text-[#E67E22] group-hover:translate-x-1 transition-transform">
-                <span>View Sport Fleet</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
-            </div>
-          </Link>
-
-          {/* Card 2: Adventure Motorcycles */}
-          <Link
-            href="/explore?category=MOTORCYCLE"
-            className="group relative rounded-3xl overflow-hidden aspect-4/3 md:aspect-3/4 bg-slate-900 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-end p-6 text-white"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://images.unsplash.com/photo-1558981403-c5f9899a28bc?auto=format&fit=crop&w=1200&q=80"
-              alt="Motorcycles"
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-70 group-hover:opacity-80"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-
-            <div className="relative z-10 space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-[#E67E22] flex items-center justify-center text-white shadow-md">
-                <Bike className="w-5 h-5" />
-              </div>
-              <h3 className="text-xl font-black">Expedition & Sport Bikes</h3>
-              <p className="text-xs text-slate-300 font-normal line-clamp-2">
-                BMW GS boxers, Ducati superbikes, and Harley cruisers ready with certified safety gear.
-              </p>
-              <div className="pt-2 flex items-center gap-1.5 text-xs font-bold text-[#E67E22] group-hover:translate-x-1 transition-transform">
-                <span>View Two-Wheeler Fleet</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
-            </div>
-          </Link>
-
-          {/* Card 3: Trucks & Haulers */}
-          <Link
-            href="/explore?category=TRUCK"
-            className="group relative rounded-3xl overflow-hidden aspect-4/3 md:aspect-3/4 bg-slate-900 shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col justify-end p-6 text-white"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=1200&q=80"
-              alt="Trucks & Haulers"
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-70 group-hover:opacity-80"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-
-            <div className="relative z-10 space-y-2">
-              <div className="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white shadow-md">
-                <Truck className="w-5 h-5" />
-              </div>
-              <h3 className="text-xl font-black">Heavy Haulers & EV Trucks</h3>
-              <p className="text-xs text-slate-300 font-normal line-clamp-2">
-                Ford F-150 Lightning, Rivian R1T, and Cummins turbo diesels with heavy towing capacity.
-              </p>
-              <div className="pt-2 flex items-center gap-1.5 text-xs font-bold text-emerald-400 group-hover:translate-x-1 transition-transform">
-                <span>View Heavy Fleet</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </div>
-            </div>
-          </Link>
-        </div>
-      </section>
-
-      {/* FEATURED VERIFIED FLEET GRID */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
-          <div>
-            <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-200">
-              Verified Host Network
-            </span>
-            <h2 className="text-2xl sm:text-3xl font-black text-[#0F2432] mt-2">
-              Featured Active Fleet
-            </h2>
-          </div>
-          <Link
-            href="/explore"
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-xs font-bold text-slate-800 transition-colors"
-          >
-            <span>View Full Inventory</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
-
-        {/* Dynamic Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {enrichedVehicles.map((vehicle) => (
-            <VehicleCard key={vehicle.id} vehicle={vehicle} />
-          ))}
-        </div>
-      </section>
-
-      {/* BENCHMARKED TRUST & ENGINEERING PILLARS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#0F2432] rounded-3xl p-8 sm:p-12 text-white relative overflow-hidden">
-          <div className="absolute right-0 top-0 w-96 h-96 bg-[#E05A36]/10 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="max-w-2xl space-y-4">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#E05A36] bg-[#E05A36]/20 px-3 py-1 rounded-full">
-              The FleetFlow Standard
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black">
-              Built on Atomic Relational Integrity & Comprehensive Protection
-            </h2>
-            <p className="text-xs sm:text-sm text-slate-300 font-normal leading-relaxed">
-              Traditional rental desks make you wait in line only to discover your car isn&apos;t there. FleetFlow pairs strict database date allocation with peer-to-peer host verification for absolute peace of mind.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-10 border-t border-slate-800 pt-8">
-            <div className="space-y-2">
-              <div className="w-8 h-8 rounded-lg bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
-                <CheckCircle2 className="w-5 h-5" />
-              </div>
-              <h4 className="font-bold text-sm">Real-Time Timestamp Overlap</h4>
-              <p className="text-xs text-slate-400">
-                Bookings are certified atomically: if an interval overlaps an existing trip, reservation attempts are immediately rejected.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <div className="w-8 h-8 rounded-lg bg-amber-500/20 text-amber-400 flex items-center justify-center">
-                <ShieldCheck className="w-5 h-5" />
-              </div>
-              <h4 className="font-bold text-sm">Verified Driver Credentials</h4>
-              <p className="text-xs text-slate-400">
-                Renters and hosts undergo strict driver license verification and background safety screenings.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <div className="w-8 h-8 rounded-lg bg-red-500/20 text-red-400 flex items-center justify-center">
-                <Zap className="w-5 h-5" />
-              </div>
-              <h4 className="font-bold text-sm">Transparent All-In Pricing</h4>
-              <p className="text-xs text-slate-400">
-                No hidden counter surcharges. Duration discounts, platform fees, and refundable security deposits are itemized upfront.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PLATFORM METRICS COUNTER */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8 rounded-3xl bg-white border border-slate-200/90 shadow-xs text-center">
-          <div>
-            <p className="text-3xl sm:text-4xl font-black text-[#0F2432] num-tabular">
-              {totalVehicles}+
-            </p>
-            <p className="text-xs font-semibold text-slate-500 mt-1">
-              Active Fleet Vehicles
-            </p>
-          </div>
-          <div>
-            <p className="text-3xl sm:text-4xl font-black text-[#E05A36] num-tabular">
-              100%
-            </p>
-            <p className="text-xs font-semibold text-slate-500 mt-1">
-              Collision-Free Guarantee
-            </p>
-          </div>
-          <div>
-            <p className="text-3xl sm:text-4xl font-black text-[#0F2432] num-tabular">
-              {totalHosts}
-            </p>
-            <p className="text-xs font-semibold text-slate-500 mt-1">
-              Certified Host Partners
-            </p>
-          </div>
-          <div>
-            <p className="text-3xl sm:text-4xl font-black text-emerald-600 num-tabular">
-              4.9★
-            </p>
-            <p className="text-xs font-semibold text-slate-500 mt-1">
-              Average Renter Rating
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-        <div className="max-w-xl mx-auto space-y-3">
-          <Sparkles className="w-8 h-8 text-[#E05A36] mx-auto" />
-          <h2 className="text-3xl font-black text-[#0F2432]">
-            Ready to Take the Wheel?
-          </h2>
-          <p className="text-xs sm:text-sm text-slate-600">
-            Browse our curated fleet of sports cars, adventure motorcycles, and hauler trucks across Bengaluru, Mumbai, Goa, New Delhi, and Pune.
-          </p>
-        </div>
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          <Link
-            href="/explore"
-            className="px-6 py-3.5 rounded-2xl bg-[#0F2432] hover:bg-[#E05A36] text-white font-extrabold text-xs shadow-md transition-colors"
-          >
-            Explore Active Fleet
-          </Link>
-          <Link
-            href="/dashboard"
-            className="px-6 py-3.5 rounded-2xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 font-bold text-xs shadow-xs transition-colors"
-          >
-            Become a Host & List Fleet
-          </Link>
-        </div>
-      </section>
+      {/* 7. Comprehensive FAQ */}
+      <FaqSection />
     </div>
   );
 }

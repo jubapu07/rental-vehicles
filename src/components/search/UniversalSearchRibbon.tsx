@@ -65,7 +65,7 @@ export default function UniversalSearchRibbon({
             onClick={() => setSelectedCategory("ALL")}
             className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold transition-all shadow-xs cursor-pointer ${
               selectedCategory === "ALL"
-                ? "bg-[#0F2432] text-white ring-2 ring-[#0F2432]/20 scale-105"
+                ? "bg-[#464B71] text-white ring-2 ring-[#464B71]/20 scale-105"
                 : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
             }`}
           >
@@ -78,11 +78,11 @@ export default function UniversalSearchRibbon({
             onClick={() => setSelectedCategory("CAR")}
             className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold transition-all shadow-xs cursor-pointer ${
               selectedCategory === "CAR"
-                ? "bg-[#0F2432] text-white ring-2 ring-[#E05A36]/50 scale-105"
+                ? "bg-[#464B71] text-white ring-2 ring-[#118AB2]/50 scale-105"
                 : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
             }`}
           >
-            <Car className={`w-3.5 h-3.5 ${selectedCategory === "CAR" ? "text-[#E05A36]" : "text-slate-400"}`} />
+            <Car className={`w-3.5 h-3.5 ${selectedCategory === "CAR" ? "text-[#118AB2]" : "text-slate-400"}`} />
             Performance Cars
           </button>
 
@@ -91,11 +91,11 @@ export default function UniversalSearchRibbon({
             onClick={() => setSelectedCategory("MOTORCYCLE")}
             className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold transition-all shadow-xs cursor-pointer ${
               selectedCategory === "MOTORCYCLE"
-                ? "bg-[#0F2432] text-white ring-2 ring-[#E67E22]/50 scale-105"
+                ? "bg-[#464B71] text-white ring-2 ring-[#7CD5C7]/50 scale-105"
                 : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
             }`}
           >
-            <Bike className={`w-3.5 h-3.5 ${selectedCategory === "MOTORCYCLE" ? "text-[#E67E22]" : "text-slate-400"}`} />
+            <Bike className={`w-3.5 h-3.5 ${selectedCategory === "MOTORCYCLE" ? "text-[#7CD5C7]" : "text-slate-400"}`} />
             Motorcycles
           </button>
 
@@ -104,7 +104,7 @@ export default function UniversalSearchRibbon({
             onClick={() => setSelectedCategory("TRUCK")}
             className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs font-bold transition-all shadow-xs cursor-pointer ${
               selectedCategory === "TRUCK"
-                ? "bg-[#0F2432] text-white ring-2 ring-emerald-500/50 scale-105"
+                ? "bg-[#464B71] text-white ring-2 ring-emerald-500/50 scale-105"
                 : "bg-white text-slate-600 hover:bg-slate-100 border border-slate-200"
             }`}
           >
@@ -125,7 +125,7 @@ export default function UniversalSearchRibbon({
             Where
           </label>
           <div className="flex items-center gap-2">
-            <MapPin className="w-4 h-4 text-[#E05A36] shrink-0" />
+            <MapPin className="w-4 h-4 text-[#118AB2] shrink-0" />
             <input
               type="text"
               value={city}
@@ -221,7 +221,7 @@ export default function UniversalSearchRibbon({
         <div className="w-full md:w-2/12 p-1.5 flex justify-end">
           <button
             type="submit"
-            className="w-full h-12 md:h-12 rounded-xl md:rounded-full bg-[#E05A36] hover:bg-[#C94C2B] text-white flex items-center justify-center gap-2 font-bold text-xs shadow-md hover:shadow-lg transition-all transform active:scale-95 cursor-pointer"
+            className="w-full h-12 md:h-12 rounded-xl md:rounded-full bg-[#118AB2] hover:bg-[#0D6E8E] text-white flex items-center justify-center gap-2 font-bold text-xs shadow-md hover:shadow-lg transition-all transform active:scale-95 cursor-pointer"
           >
             <Search className="w-4 h-4" />
             <span>Search Fleet</span>

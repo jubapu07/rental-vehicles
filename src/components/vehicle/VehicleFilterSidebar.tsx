@@ -61,7 +61,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
       {/* Header & Reset */}
       <div className="flex items-center justify-between border-b border-slate-100 pb-4">
         <div className="flex items-center gap-2">
-          <div className="p-2 rounded-xl bg-slate-100 text-[#0F2432]">
+          <div className="p-2 rounded-xl bg-slate-100 text-[#464B71]">
             <Filter className="w-4 h-4" />
           </div>
           <div>
@@ -73,7 +73,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
         <button
           type="button"
           onClick={handleResetFilters}
-          className="flex items-center gap-1 text-[11px] font-bold text-[#E05A36] hover:text-[#C94C2B] transition-colors cursor-pointer"
+          className="flex items-center gap-1 text-[11px] font-bold text-[#118AB2] hover:text-[#0D6E8E] transition-colors cursor-pointer"
         >
           <RotateCcw className="w-3 h-3" />
           Reset
@@ -91,7 +91,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
             onClick={() => updateParam("category", "ALL")}
             className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-between transition-all cursor-pointer ${
               currentCategory === "ALL"
-                ? "bg-[#0F2432] text-white shadow-xs"
+                ? "bg-[#464B71] text-white shadow-xs"
                 : "bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200"
             }`}
           >
@@ -104,12 +104,12 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
             onClick={() => updateParam("category", "CAR")}
             className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-between transition-all cursor-pointer ${
               currentCategory === "CAR"
-                ? "bg-[#0F2432] text-white shadow-xs ring-2 ring-[#E05A36]/40"
+                ? "bg-[#464B71] text-white shadow-xs ring-2 ring-[#118AB2]/40"
                 : "bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200"
             }`}
           >
             <div className="flex items-center gap-1.5">
-              <Car className="w-3.5 h-3.5 text-[#E05A36]" />
+              <Car className="w-3.5 h-3.5 text-[#118AB2]" />
               <span>Cars</span>
             </div>
             {facets && <span className="text-[10px] opacity-75">({facets.cars})</span>}
@@ -120,12 +120,12 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
             onClick={() => updateParam("category", "MOTORCYCLE")}
             className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-between transition-all cursor-pointer ${
               currentCategory === "MOTORCYCLE"
-                ? "bg-[#0F2432] text-white shadow-xs ring-2 ring-[#E67E22]/40"
+                ? "bg-[#464B71] text-white shadow-xs ring-2 ring-[#7CD5C7]/40"
                 : "bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200"
             }`}
           >
             <div className="flex items-center gap-1.5">
-              <Bike className="w-3.5 h-3.5 text-[#E67E22]" />
+              <Bike className="w-3.5 h-3.5 text-[#7CD5C7]" />
               <span>Bikes</span>
             </div>
             {facets && <span className="text-[10px] opacity-75">({facets.motorcycles})</span>}
@@ -136,7 +136,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
             onClick={() => updateParam("category", "TRUCK")}
             className={`px-3 py-2 rounded-xl text-xs font-bold flex items-center justify-between transition-all cursor-pointer ${
               currentCategory === "TRUCK"
-                ? "bg-[#0F2432] text-white shadow-xs ring-2 ring-emerald-500/40"
+                ? "bg-[#464B71] text-white shadow-xs ring-2 ring-emerald-500/40"
                 : "bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200"
             }`}
           >
@@ -152,7 +152,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
       {/* 2. Instant Book Toggle */}
       <div className="flex items-center justify-between p-3 rounded-2xl bg-amber-500/10 border border-amber-500/20">
         <div className="flex items-center gap-2">
-          <Zap className="w-4 h-4 text-[#E05A36] fill-[#E05A36]" />
+          <Zap className="w-4 h-4 text-[#118AB2] fill-[#118AB2]" />
           <div>
             <p className="text-xs font-bold text-slate-900">Instant Book Only</p>
             <p className="text-[10px] text-slate-500">No waiting for host approval</p>
@@ -162,7 +162,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
           type="checkbox"
           checked={currentInstantOnly}
           onChange={(e) => updateParam("instantOnly", e.target.checked ? "true" : null)}
-          className="w-4 h-4 accent-[#E05A36] rounded cursor-pointer"
+          className="w-4 h-4 accent-[#118AB2] rounded cursor-pointer"
         />
       </div>
 
@@ -212,7 +212,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
               onClick={() => updateParam("agency", ag)}
               className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-left truncate cursor-pointer ${
                 currentAgency === ag
-                  ? "bg-[#0F2432] text-white shadow-xs"
+                  ? "bg-[#464B71] text-white shadow-xs"
                   : "bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200"
               }`}
             >
@@ -228,7 +228,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
           <label className="text-xs font-bold text-slate-900 uppercase tracking-wider">
             Max Daily Rate
           </label>
-          <span className="text-sm font-extrabold text-[#0F2432] num-tabular">
+          <span className="text-sm font-extrabold text-[#464B71] num-tabular">
             ₹{parseInt(currentMaxPrice || "12000", 10).toLocaleString("en-IN")}/day
           </span>
         </div>
@@ -239,7 +239,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
           step="250"
           value={currentMaxPrice}
           onChange={(e) => updateParam("maxPrice", e.target.value)}
-          className="w-full accent-[#E05A36] cursor-pointer"
+          className="w-full accent-[#118AB2] cursor-pointer"
         />
         <div className="flex justify-between text-[10px] text-slate-400 mt-1">
           <span>₹500/day</span>
@@ -256,7 +256,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
               <label className="text-xs font-bold text-slate-900 uppercase tracking-wider">
                 Min Engine CC
               </label>
-              <span className="text-xs font-bold text-[#E67E22]">
+              <span className="text-xs font-bold text-[#7CD5C7]">
                 {currentMinCc === "0" ? "Any CC" : `${currentMinCc}cc+`}
               </span>
             </div>
@@ -267,7 +267,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
               step="100"
               value={currentMinCc}
               onChange={(e) => updateParam("minCc", e.target.value)}
-              className="w-full accent-[#E67E22] cursor-pointer"
+              className="w-full accent-[#7CD5C7] cursor-pointer"
             />
             <div className="flex justify-between text-[10px] text-slate-400 mt-1">
               <span>Any</span>
@@ -288,7 +288,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
                   onClick={() => updateParam("bikeType", bType)}
                   className={`px-2.5 py-1.5 rounded-lg text-[11px] font-bold text-left transition-all ${
                     currentBikeType === bType
-                      ? "bg-[#0F2432] text-white"
+                      ? "bg-[#464B71] text-white"
                       : "bg-slate-50 text-slate-600 hover:bg-slate-100"
                   }`}
                 >
@@ -345,7 +345,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
                   onClick={() => updateParam("seats", num)}
                   className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all ${
                     currentSeats === num
-                      ? "bg-[#0F2432] text-white"
+                      ? "bg-[#464B71] text-white"
                       : "bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200"
                   }`}
                 >
@@ -375,7 +375,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
                 onClick={() => updateParam("transmission", t.id)}
                 className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all ${
                   currentTransmission === t.id
-                    ? "bg-[#0F2432] text-white"
+                    ? "bg-[#464B71] text-white"
                     : "bg-slate-50 text-slate-700 hover:bg-slate-100 border border-slate-200"
                 }`}
               >
@@ -402,7 +402,7 @@ export default function VehicleFilterSidebar({ facets }: VehicleFilterSidebarPro
                 onClick={() => updateParam("fuelType", f.id)}
                 className={`px-2.5 py-1.5 rounded-lg text-[11px] font-bold text-left transition-all ${
                   currentFuelType === f.id
-                    ? "bg-[#0F2432] text-white"
+                    ? "bg-[#464B71] text-white"
                     : "bg-slate-50 text-slate-700 hover:bg-slate-100"
                 }`}
               >

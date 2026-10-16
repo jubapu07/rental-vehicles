@@ -22,16 +22,16 @@ export default function FeatureValueCards({ currentCity = "Bengaluru, KA" }: Fea
           <button
             type="button"
             onClick={() => setIsDealsOpen(true)}
-            className="group text-left bg-white rounded-2xl md:rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-[#E05A36]/40 transition-all cursor-pointer flex items-start gap-4 relative overflow-hidden"
+            className="group text-left bg-white rounded-2xl md:rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-[#118AB2]/40 transition-all cursor-pointer flex items-start gap-4 relative overflow-hidden"
           >
-            <div className="w-11 h-11 rounded-2xl bg-amber-50 text-amber-600 border border-amber-200/60 flex items-center justify-center shrink-0 group-hover:bg-[#E05A36] group-hover:text-white transition-colors duration-300">
+            <div className="w-11 h-11 rounded-2xl bg-amber-50 text-amber-600 border border-amber-200/60 flex items-center justify-center shrink-0 group-hover:bg-[#118AB2] group-hover:text-white transition-colors duration-300">
               <Tag className="w-5 h-5" />
             </div>
             <div className="space-y-1 grow">
-              <p className="text-xs sm:text-sm font-bold text-slate-900 leading-snug group-hover:text-[#E05A36] transition-colors">
+              <p className="text-xs sm:text-sm font-bold text-slate-900 leading-snug group-hover:text-[#118AB2] transition-colors">
                 Save up to 49% on car rentals. Compare deals from all over the web.
               </p>
-              <span className="text-[11px] font-semibold text-[#E05A36] inline-flex items-center gap-1">
+              <span className="text-[11px] font-semibold text-[#118AB2] inline-flex items-center gap-1">
                 <span>View current promotions</span>
                 <ArrowUpRight className="w-3 h-3 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </span>
@@ -42,13 +42,13 @@ export default function FeatureValueCards({ currentCity = "Bengaluru, KA" }: Fea
           <button
             type="button"
             onClick={() => setIsPriceTrackingOpen(true)}
-            className="group text-left bg-white rounded-2xl md:rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-[#E05A36]/40 transition-all cursor-pointer flex items-start gap-4 relative overflow-hidden"
+            className="group text-left bg-white rounded-2xl md:rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-[#118AB2]/40 transition-all cursor-pointer flex items-start gap-4 relative overflow-hidden"
           >
-            <div className="w-11 h-11 rounded-2xl bg-blue-50 text-blue-600 border border-blue-200/60 flex items-center justify-center shrink-0 group-hover:bg-[#0F2432] group-hover:text-white transition-colors duration-300">
+            <div className="w-11 h-11 rounded-2xl bg-blue-50 text-blue-600 border border-blue-200/60 flex items-center justify-center shrink-0 group-hover:bg-[#464B71] group-hover:text-white transition-colors duration-300">
               <Bell className="w-5 h-5 animate-pulse" />
             </div>
             <div className="space-y-1 grow">
-              <p className="text-xs sm:text-sm font-bold text-slate-900 leading-snug group-hover:text-[#0F2432] transition-colors">
+              <p className="text-xs sm:text-sm font-bold text-slate-900 leading-snug group-hover:text-[#464B71] transition-colors">
                 Never overpay with our price tracking tools.
               </p>
               <span className="text-[11px] font-semibold text-blue-600 inline-flex items-center gap-1">
@@ -61,7 +61,7 @@ export default function FeatureValueCards({ currentCity = "Bengaluru, KA" }: Fea
           {/* Card 3: Deep Filtering */}
           <Link
             href="/explore"
-            className="group text-left bg-white rounded-2xl md:rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-[#E05A36]/40 transition-all cursor-pointer flex items-start gap-4 relative overflow-hidden"
+            className="group text-left bg-white rounded-2xl md:rounded-3xl p-5 sm:p-6 border border-slate-200/90 shadow-sm hover:shadow-md hover:border-[#118AB2]/40 transition-all cursor-pointer flex items-start gap-4 relative overflow-hidden"
           >
             <div className="w-11 h-11 rounded-2xl bg-emerald-50 text-emerald-600 border border-emerald-200/60 flex items-center justify-center shrink-0 group-hover:bg-emerald-600 group-hover:text-white transition-colors duration-300">
               <SlidersHorizontal className="w-5 h-5" />

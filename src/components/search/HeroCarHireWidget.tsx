@@ -171,11 +171,11 @@ export default function HeroCarHireWidget({ onSearchChange }: HeroCarHireWidgetP
                       setShowDropoffMenu(false);
                     }}
                     className={`w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-slate-100 flex items-center justify-between cursor-pointer ${
-                      !differentDropoff ? "text-[#E05A36] font-bold bg-slate-50" : "text-slate-800"
+                      !differentDropoff ? "text-[#118AB2] font-bold bg-slate-50" : "text-slate-800"
                     }`}
                   >
                     <span>Same drop-off</span>
-                    {!differentDropoff && <span className="w-1.5 h-1.5 rounded-full bg-[#E05A36]"></span>}
+                    {!differentDropoff && <span className="w-1.5 h-1.5 rounded-full bg-[#118AB2]"></span>}
                   </button>
                   <button
                     type="button"
@@ -185,11 +185,11 @@ export default function HeroCarHireWidget({ onSearchChange }: HeroCarHireWidgetP
                       if (!dropoffCity) setDropoffCity("San Francisco, CA, United States");
                     }}
                     className={`w-full text-left px-3.5 py-2 text-xs font-semibold hover:bg-slate-100 flex items-center justify-between cursor-pointer ${
-                      differentDropoff ? "text-[#E05A36] font-bold bg-slate-50" : "text-slate-800"
+                      differentDropoff ? "text-[#118AB2] font-bold bg-slate-50" : "text-slate-800"
                     }`}
                   >
                     <span>Different drop-off</span>
-                    {differentDropoff && <span className="w-1.5 h-1.5 rounded-full bg-[#E05A36]"></span>}
+                    {differentDropoff && <span className="w-1.5 h-1.5 rounded-full bg-[#118AB2]"></span>}
                   </button>
                 </div>
               </>
@@ -238,7 +238,7 @@ export default function HeroCarHireWidget({ onSearchChange }: HeroCarHireWidgetP
                       <p>Age 25 - 65</p>
                       <p className="text-[10px] text-slate-400 font-normal">Standard rates, no surcharges</p>
                     </div>
-                    {driverAge === "25-65" && <span className="w-2 h-2 rounded-full bg-[#E05A36]"></span>}
+                    {driverAge === "25-65" && <span className="w-2 h-2 rounded-full bg-[#118AB2]"></span>}
                   </button>
 
                   <button
@@ -255,7 +255,7 @@ export default function HeroCarHireWidget({ onSearchChange }: HeroCarHireWidgetP
                       <p>Age 18 - 24 (Young Driver)</p>
                       <p className="text-[10px] text-slate-400 font-normal">Young renter policy applies</p>
                     </div>
-                    {driverAge === "18-24" && <span className="w-2 h-2 rounded-full bg-[#E05A36]"></span>}
+                    {driverAge === "18-24" && <span className="w-2 h-2 rounded-full bg-[#118AB2]"></span>}
                   </button>
 
                   <button
@@ -272,7 +272,7 @@ export default function HeroCarHireWidget({ onSearchChange }: HeroCarHireWidgetP
                       <p>Age 65+</p>
                       <p className="text-[10px] text-slate-400 font-normal">Senior driver options</p>
                     </div>
-                    {driverAge === "65+" && <span className="w-2 h-2 rounded-full bg-[#E05A36]"></span>}
+                    {driverAge === "65+" && <span className="w-2 h-2 rounded-full bg-[#118AB2]"></span>}
                   </button>
 
                   <div className="pt-2 border-t border-slate-100">
@@ -286,7 +286,7 @@ export default function HeroCarHireWidget({ onSearchChange }: HeroCarHireWidgetP
                         max="99"
                         value={customAge}
                         onChange={(e) => setCustomAge(e.target.value)}
-                        className="w-20 px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-bold text-slate-900 focus:outline-hidden focus:ring-1 focus:ring-[#E05A36]"
+                        className="w-20 px-2.5 py-1.5 rounded-lg border border-slate-300 text-xs font-bold text-slate-900 focus:outline-hidden focus:ring-1 focus:ring-[#118AB2]"
                       />
                       <button
                         type="button"
@@ -294,7 +294,7 @@ export default function HeroCarHireWidget({ onSearchChange }: HeroCarHireWidgetP
                           setDriverAge("custom");
                           setShowAgeMenu(false);
                         }}
-                        className="px-3 py-1.5 rounded-lg bg-[#0F2432] text-white text-xs font-bold hover:bg-[#E05A36] transition-colors cursor-pointer"
+                        className="px-3 py-1.5 rounded-lg bg-[#464B71] text-white text-xs font-bold hover:bg-[#118AB2] transition-colors cursor-pointer"
                       >
                         Apply
                       </button>
@@ -311,7 +311,7 @@ export default function HeroCarHireWidget({ onSearchChange }: HeroCarHireWidgetP
           <div className="flex flex-col lg:flex-row items-stretch gap-2 bg-slate-100/90 p-2 rounded-2xl md:rounded-2xl border border-slate-200">
             {/* Pick-up Location Field */}
             <div className="relative flex-1 bg-white rounded-xl px-3.5 py-2.5 border border-slate-200 shadow-2xs group flex items-center gap-2">
-              <MapPin className="w-4 h-4 text-slate-400 group-hover:text-[#E05A36] shrink-0 transition-colors" />
+              <MapPin className="w-4 h-4 text-slate-400 group-hover:text-[#118AB2] shrink-0 transition-colors" />
               <div className="grow min-w-0">
                 <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
                   Pick-up Location
@@ -383,7 +383,7 @@ export default function HeroCarHireWidget({ onSearchChange }: HeroCarHireWidgetP
             {/* Drop-off Location Field (Conditional if different drop-off) */}
             {differentDropoff && (
               <div className="relative flex-1 bg-white rounded-xl px-3.5 py-2.5 border border-slate-200 shadow-2xs group flex items-center gap-2 animate-in slide-in-from-left-2 duration-150">
-                <MapPin className="w-4 h-4 text-[#E05A36] shrink-0" />
+                <MapPin className="w-4 h-4 text-[#118AB2] shrink-0" />
                 <div className="grow min-w-0">
                   <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
                     Drop-off Location

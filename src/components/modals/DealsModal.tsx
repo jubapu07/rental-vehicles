@@ -54,9 +54,9 @@ export default function DealsModal({ isOpen, onClose }: DealsModalProps) {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-xs animate-in fade-in duration-200">
       <div className="fixed inset-0" onClick={onClose} />
 
-      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden z-10 animate-in zoom-in-95 duration-200">
+      <div className="relative w-full max-w-lg bg-[#FFFFFF] dark:bg-[#272B44] rounded-3xl shadow-2xl border border-[#DFDFD5] dark:border-[#373D60] overflow-hidden z-10 animate-in zoom-in-95 duration-200">
         {/* Header */}
-        <div className="bg-gradient-to-r from-[#E05A36] via-[#E67E22] to-amber-500 text-white p-6 pb-7 relative">
+        <div className="bg-gradient-to-r from-[#464B71] via-[#34395A] to-[#118AB2] text-white p-6 pb-7 relative">
           <button
             type="button"
             onClick={onClose}
@@ -67,44 +67,44 @@ export default function DealsModal({ isOpen, onClose }: DealsModalProps) {
 
           <div className="flex items-center gap-2 mb-2">
             <span className="p-1 rounded-md bg-white/20">
-              <Tag className="w-4 h-4 text-white" />
+              <Tag className="w-4 h-4 text-[#7CD5C7]" />
             </span>
-            <span className="text-xs font-bold uppercase tracking-wider text-amber-100">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#7CD5C7]">
               Exclusive India Rental Discounts
             </span>
           </div>
 
-          <h3 className="text-2xl font-black">Save Up to 49% Across India</h3>
-          <p className="text-xs text-amber-50 mt-1 font-normal">
-            Real-time negotiated deals across Zoomcar, Revv, Avis India, Hertz India, and certified fleet hosts.
+          <h3 className="text-2xl font-black text-[#F2F2ED] font-['Outfit']">Save Up to 49% Across India</h3>
+          <p className="text-xs text-[#DFDFD5] mt-1 font-normal">
+            Real-time verified festive coupons across self-drive hatchbacks, 4x4 SUVs, and electric vehicles.
           </p>
         </div>
 
         {/* Deals list */}
-        <div className="p-6 space-y-3.5 max-h-[60vh] overflow-y-auto">
+        <div className="p-6 space-y-3.5 max-h-[60vh] overflow-y-auto bg-[#F2F2ED]/30 dark:bg-[#464B71]/30">
           {deals.map((deal) => (
             <div
               key={deal.promoCode}
-              className="p-4 rounded-2xl border border-slate-200 hover:border-[#E05A36]/40 hover:shadow-sm transition-all bg-white space-y-2"
+              className="p-4 rounded-2xl border border-[#DFDFD5] dark:border-[#373D60] hover:border-[#118AB2]/60 hover:shadow-sm transition-all bg-white dark:bg-[#272B44] space-y-2"
             >
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-slate-900">{deal.title}</span>
-                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-black bg-rose-100 text-rose-700">
+                <span className="text-xs font-bold text-[#464B71] dark:text-[#F2F2ED]">{deal.title}</span>
+                <span className="px-2.5 py-0.5 rounded-full text-[11px] font-black bg-[#118AB2]/15 text-[#118AB2] dark:text-[#7CD5C7]">
                   {deal.badge}
                 </span>
               </div>
-              <p className="text-xs text-slate-600 font-normal leading-relaxed">
+              <p className="text-xs text-[#676C8F] dark:text-[#A5ABC9] font-normal leading-relaxed">
                 {deal.description}
               </p>
               <div className="flex items-center justify-between pt-1">
-                <div className="flex items-center gap-1.5 text-[11px] text-slate-500 font-semibold">
+                <div className="flex items-center gap-1.5 text-[11px] text-[#676C8F] dark:text-[#8D93B4] font-semibold">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                  <span>Code: <code className="bg-slate-100 px-1.5 py-0.5 rounded text-slate-800 font-mono font-bold">{deal.promoCode}</code></span>
+                  <span>Code: <code className="bg-[#F2F2ED] dark:bg-[#464B71] px-1.5 py-0.5 rounded text-[#118AB2] font-mono font-bold border border-[#DFDFD5] dark:border-[#373D60]">{deal.promoCode}</code></span>
                 </div>
                 <Link
                   href={deal.href}
                   onClick={onClose}
-                  className="inline-flex items-center gap-1 text-xs font-bold text-[#E05A36] hover:text-[#C94C2B]"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#118AB2] hover:text-[#0D6E8E]"
                 >
                   <span>Apply Deal</span>
                   <ArrowRight className="w-3.5 h-3.5" />
@@ -115,15 +115,15 @@ export default function DealsModal({ isOpen, onClose }: DealsModalProps) {
         </div>
 
         {/* Footer */}
-        <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between text-xs">
-          <div className="flex items-center gap-1.5 text-slate-500">
+        <div className="p-4 bg-[#F2F2ED] dark:bg-[#464B71] border-t border-[#DFDFD5] dark:border-[#373D60] flex items-center justify-between text-xs">
+          <div className="flex items-center gap-1.5 text-[#676C8F] dark:text-[#A5ABC9]">
             <Check className="w-3.5 h-3.5 text-emerald-600" />
             <span>Discounts automatically applied at checkout</span>
           </div>
           <Link
             href="/explore"
             onClick={onClose}
-            className="px-4 py-2 rounded-xl bg-[#0F2432] text-white font-bold hover:bg-[#E05A36] transition-colors"
+            className="px-4 py-2 rounded-xl bg-[#464B71] dark:bg-[#118AB2] text-white font-bold hover:bg-[#118AB2] transition-colors"
           >
             View All Deals
           </Link>

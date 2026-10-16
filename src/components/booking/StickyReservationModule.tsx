@@ -104,8 +104,8 @@ export default function StickyReservationModule({
         </div>
 
         {vehicle.instantBookable ? (
-          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-amber-50 text-[#E05A36] text-xs font-black border border-amber-200">
-            <Zap className="w-3.5 h-3.5 fill-[#E05A36]" />
+          <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-amber-50 text-[#118AB2] text-xs font-black border border-amber-200">
+            <Zap className="w-3.5 h-3.5 fill-[#118AB2]" />
             Instant Book
           </span>
         ) : (
@@ -164,7 +164,7 @@ export default function StickyReservationModule({
       {/* Certified Quote Breakdown */}
       {loadingQuote ? (
         <div className="py-6 flex items-center justify-center gap-2 text-xs font-semibold text-slate-400">
-          <div className="w-4 h-4 border-2 border-[#E05A36] border-t-transparent rounded-full animate-spin" />
+          <div className="w-4 h-4 border-2 border-[#118AB2] border-t-transparent rounded-full animate-spin" />
           <span>Computing certified quote...</span>
         </div>
       ) : quote ? (
@@ -197,7 +197,7 @@ export default function StickyReservationModule({
 
           <div className="flex justify-between items-baseline border-t border-slate-200 pt-3 text-sm font-black text-slate-900">
             <span>Total Certified Quote</span>
-            <span className="text-xl text-[#0F2432] num-tabular">₹{quote.totalPrice.toLocaleString("en-IN")}</span>
+            <span className="text-xl text-[#464B71] num-tabular">₹{quote.totalPrice.toLocaleString("en-IN")}</span>
           </div>
         </div>
       ) : null}
@@ -207,7 +207,7 @@ export default function StickyReservationModule({
         type="button"
         disabled={loadingQuote || !quote || Boolean(availabilityError)}
         onClick={() => setIsCheckoutOpen(true)}
-        className="w-full py-4 px-6 rounded-2xl bg-[#E05A36] hover:bg-[#C94C2B] disabled:opacity-40 disabled:cursor-not-allowed text-white font-extrabold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer transform active:scale-98"
+        className="w-full py-4 px-6 rounded-2xl bg-[#118AB2] hover:bg-[#0D6E8E] disabled:opacity-40 disabled:cursor-not-allowed text-white font-extrabold text-sm shadow-md hover:shadow-lg transition-all flex items-center justify-center gap-2 cursor-pointer transform active:scale-98"
       >
         {vehicle.instantBookable ? (
           <>
